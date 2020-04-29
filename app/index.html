@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>app | Thomas Delatte</title>
-	<meta name="description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
+	<meta name="description" content="html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding: 1em !important } section { min-height: 95% !important } .gen-box { background-color: #fff; display: block; padding: 1.25rem; color: #4a4a4a; font-size: 1rem; font-weight: 400; line-height: 1.25; } .gen-border { height: 0.25em; background-color: #d5d5d5 …">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
 	<meta property="og:title" content="app">
-	<meta property="og:description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
+	<meta property="og:description" content="html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding: 1em !important } section { min-height: 95% !important } .gen-box { background-color: #fff; display: block; padding: 1.25rem; color: #4a4a4a; font-size: 1rem; font-weight: 400; line-height: 1.25; } .gen-border { height: 0.25em; background-color: #d5d5d5 …">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://thomasdelatte.github.io/app/">
@@ -66,11 +66,96 @@
 		<article>
 	<h1 class="title"><a href="/app/" title="app">app</a></h1>
 	<div class="content">
-		<p><html>
-<head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+		<style>
+    html,
+    body {
+        height: 95% !important;
+        margin: 0 !important;
+    }
+
+    footer {
+        /*max-height: 5% !important;*/
+        padding: 1em !important
+    }
+
+    section {
+        min-height: 95% !important
+    }
+
+    .gen-box {
+        background-color: #fff;
+        display: block;
+        padding: 1.25rem;
+        color: #4a4a4a;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+
+    .gen-border {
+        height: 0.25em;
+        background-color: #d5d5d5;
+    }
+
+    .gen-box.warning {
+        color: red;
+        font-weight: 700;
+
+    }
+
+    .brand-text {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em
+    }
+
+    #extra-buttons {
+        padding-top: 1em;
+        margin-top: 1em;
+        border-top: 0.5px solid #d5d5d5;
+    }
+</style>
+
+<p><html></p>
+<p><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App</title>
+    <meta name="title" content="AI-Generated Text with GPT-2 using Google Cloud Run" />
+    <meta name="description" content="Generate text from OpenAI's GPT-2 model!" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <span class="icon is-large">
+            <span class="fa-stack">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-robot fa-stack-1x fa-inverse"></i>
+            </span>
+        </span>
+        <div class="brand-text is-family-code is-uppercase has-text-weight-bold">GPT-2</div>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu is-active">
+        <div class="navbar-start">
+            <div class="navbar-item">
+                Generate custom text from an AI using GPT-2 (using the 117M default model)
+            </div>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item is-hidden-touch">
+                <div class="buttons">
+                    <a class="button is-light" href="https://github.com/minimaxir/gpt-2-cloud-run" target="_blank">
+                        <span class="icon">
+                            <i class="fab fa-lg fa-github"></i>
+                        </span><span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav></p>
+<p><body>
     <section id="main" class="section">
         <div class="container">
             <div class="columns is-variable is-5">
