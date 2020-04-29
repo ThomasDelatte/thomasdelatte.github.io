@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Thomas Delatte'
 SITENAME = "Thomas Delatte's blog"
-SITEURL = 'thomasdelatte.com'
+SITEURL = 'thomasdelatte.github.io'
 
 PATH = 'content'
 
@@ -83,12 +83,12 @@ TEMPLATE_PAGES = {page: page for page in templates}
 STATIC_PATHS = ['images/icons', 'images/articles', 'extra']
 IGNORE_FILES = ['.DS_Store', 'pneumatic.scss', 'pygments.css', '.ipynb_checkpoints']
 
-extras = ['CNAME', 'favicon.ico', 'keybase.txt', 'robots.txt']
+extras = ['CNAME', 'favicon.ico', 'robots.txt']
 EXTRA_PATH_METADATA = {'extra/%s' % file: {'path': file} for file in extras}
 IPYNB_USE_METACELL = True
 
 MARKUP = ('md', 'ipynb')
-PLUGIN_PATHS = ['plugins', '/home/tdelatte/projects/blog/plugins']
+PLUGIN_PATHS = ['plugins', '/home/tdelatte/projects/pelican/plugins']
 PLUGINS = ['assets', 'neighbors', 'render_math', 'ipynb.markup']
 ASSET_SOURCE_PATHS = ['static']
 ASSET_CONFIG = [
