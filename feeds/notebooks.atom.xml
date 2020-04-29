@@ -1113,6 +1113,15 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;link rel="stylesheet" href="/path/to/styles/default.css"/&gt;&lt;/p&gt;
+&lt;script src="/path/to/highlight.pack.js"&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Clustering-with-K-Means"&gt;Clustering with K-Means&lt;a class="anchor-link" href="#Clustering-with-K-Means"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="Introducing-K-Means"&gt;Introducing K-Means&lt;a class="anchor-link" href="#Introducing-K-Means"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Clustering algorithms are a class of unsupervised machine learning models. They seek to learn an optimal division of group of points from the data features.&lt;/p&gt;
 &lt;p&gt;Probably the simplest to understand is an algorithm called k-means clustering, which clusters the data into &lt;em&gt;k&lt;/em&gt; number of clusters.&lt;/p&gt;
 &lt;p&gt;This algorithm is widely used in practice:&lt;/p&gt;
