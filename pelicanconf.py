@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Thomas Delatte'
 SITENAME = "Thomas Delatte's blog"
-SITEURL = 'thomasdelatte.github.io'
+SITEURL = 'https://thomasdelatte.github.io'
 
 PATH = 'content'
 
@@ -83,8 +83,9 @@ TEMPLATE_PAGES = {page: page for page in templates}
 STATIC_PATHS = ['images/icons', 'images/articles', 'extra']
 IGNORE_FILES = ['.DS_Store', 'pneumatic.scss', 'pygments.css', '.ipynb_checkpoints']
 
+
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, 'extra/favicon.ico': {'path': 'favicon.ico'}}
 extras = ['CNAME', 'favicon.ico', 'robots.txt']
-EXTRA_PATH_METADATA = {'extra/%s' % file: {'path': file} for file in extras}
 IPYNB_USE_METACELL = True
 
 MARKUP = ('md', 'ipynb')

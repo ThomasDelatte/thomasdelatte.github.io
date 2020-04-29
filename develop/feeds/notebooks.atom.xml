@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Thomas Delatte's blog - notebooks</title><link href="http://thomasdelatte.github.io/" rel="alternate"></link><link href="http://thomasdelatte.github.io/feeds/notebooks.atom.xml" rel="self"></link><id>http://thomasdelatte.github.io/</id><updated>2020-04-15T00:00:00+02:00</updated><entry><title>Clustering with K-Means</title><link href="http://thomasdelatte.github.io/2020/04/kmeans/" rel="alternate"></link><published>2020-04-15T00:00:00+02:00</published><updated>2020-04-15T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-15:/2020/04/kmeans/</id><summary type="html">&lt;p&gt;Clustering algorithms are a class of unsupervised machine learning models. I seek to understand how the algorithm works by making a simple dataset.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Thomas Delatte's blog - notebooks</title><link href="https://thomasdelatte.github.io/" rel="alternate"></link><link href="https://thomasdelatte.github.io/feeds/notebooks.atom.xml" rel="self"></link><id>https://thomasdelatte.github.io/</id><updated>2020-04-15T00:00:00+02:00</updated><entry><title>Clustering with K-Means</title><link href="https://thomasdelatte.github.io/2020/04/kmeans/" rel="alternate"></link><published>2020-04-15T00:00:00+02:00</published><updated>2020-04-15T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-15:/2020/04/kmeans/</id><summary type="html">&lt;p&gt;Clustering algorithms are a class of unsupervised machine learning models. I seek to understand how the algorithm works by making a simple dataset.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2100,7 +2100,7 @@ Wall time: 78.5 ms
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="notebooks"></category></entry><entry><title>Pulsars Detection with HTRU2 Dataset</title><link href="http://thomasdelatte.github.io/2020/04/pulsars/" rel="alternate"></link><published>2020-04-05T00:00:00+02:00</published><updated>2020-04-05T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-05:/2020/04/pulsars/</id><summary type="html">&lt;p&gt;The HTRU2 dataset contains data about pulsars. As a classification task, I implement a few quick-and-dirty ML models before implementing ensemble models. CLustering with PCA and K-Means is then applied.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="notebooks"></category></entry><entry><title>Pulsars Detection with HTRU2 Dataset</title><link href="https://thomasdelatte.github.io/2020/04/pulsars/" rel="alternate"></link><published>2020-04-05T00:00:00+02:00</published><updated>2020-04-05T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-05:/2020/04/pulsars/</id><summary type="html">&lt;p&gt;The HTRU2 dataset contains data about pulsars. As a classification task, I implement a few quick-and-dirty ML models before implementing ensemble models. CLustering with PCA and K-Means is then applied.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4935,7 +4935,7 @@ weighted avg       0.98      0.98      0.98      3580
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="notebooks"></category></entry><entry><title>Computer Vision with Animals from QuickDraw</title><link href="http://thomasdelatte.github.io/2020/04/quickdraw/" rel="alternate"></link><published>2020-04-02T00:00:00+02:00</published><updated>2020-04-02T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-02:/2020/04/quickdraw/</id><summary type="html">&lt;p&gt;The Quick Draw Dataset is a collection of 50 million drawings collected by Google, contributed by people drawing objects from 345 categories. I train a CNN model to recognize 12 preselected categories of animals.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="notebooks"></category></entry><entry><title>Computer Vision with Animals from QuickDraw</title><link href="https://thomasdelatte.github.io/2020/04/quickdraw/" rel="alternate"></link><published>2020-04-02T00:00:00+02:00</published><updated>2020-04-02T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-02:/2020/04/quickdraw/</id><summary type="html">&lt;p&gt;The Quick Draw Dataset is a collection of 50 million drawings collected by Google, contributed by people drawing objects from 345 categories. I train a CNN model to recognize 12 preselected categories of animals.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6692,7 +6692,7 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="notebooks"></category></entry><entry><title>Facial Keypoints Detection</title><link href="http://thomasdelatte.github.io/2020/03/keypoints/" rel="alternate"></link><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-03-25:/2020/03/keypoints/</id><summary type="html">&lt;p&gt;I use here an object detection method to predict keypoint positions on face images. Data comes from Kaggle.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="notebooks"></category></entry><entry><title>Facial Keypoints Detection</title><link href="https://thomasdelatte.github.io/2020/03/keypoints/" rel="alternate"></link><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-03-25:/2020/03/keypoints/</id><summary type="html">&lt;p&gt;I use here an object detection method to predict keypoint positions on face images. Data comes from Kaggle.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
