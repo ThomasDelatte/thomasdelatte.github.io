@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>app | Thomas Delatte</title>
-	<meta name="description" content="(setq markdown-xhtml-header-content " html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding:">
+	<meta name="description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
 	<meta property="og:title" content="app">
-	<meta property="og:description" content="(setq markdown-xhtml-header-content " html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding:">
+	<meta property="og:description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://thomasdelatte.github.io/app/">
@@ -66,60 +66,11 @@
 		<article>
 	<h1 class="title"><a href="/app/" title="app">app</a></h1>
 	<div class="content">
-		<p>(setq markdown-xhtml-header-content "
-<style>
-    html,
-    body {
-        height: 95% !important;
-        margin: 0 !important;
-    }</p>
-<div class="codehilite"><pre><span></span><span class="nt">footer</span> <span class="p">{</span>
-    <span class="c">/*max-height: 5% !important;*/</span>
-    <span class="k">padding</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span> <span class="cp">!important</span>
-<span class="p">}</span>
-
-<span class="nt">section</span> <span class="p">{</span>
-    <span class="k">min-height</span><span class="p">:</span> <span class="mi">95</span><span class="kt">%</span> <span class="cp">!important</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">gen-box</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
-    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-    <span class="k">padding</span><span class="p">:</span> <span class="mf">1.25</span><span class="kt">rem</span><span class="p">;</span>
-    <span class="k">color</span><span class="p">:</span> <span class="mh">#4a4a4a</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
-    <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.25</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">gen-border</span> <span class="p">{</span>
-    <span class="k">height</span><span class="p">:</span> <span class="mf">0.25</span><span class="kt">em</span><span class="p">;</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#d5d5d5</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">gen-box</span><span class="p">.</span><span class="nc">warning</span> <span class="p">{</span>
-    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">700</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">brand-text</span> <span class="p">{</span>
-    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-    <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-    <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span>
-<span class="p">}</span>
-
-<span class="p">#</span><span class="nn">extra-buttons</span> <span class="p">{</span>
-    <span class="k">padding-top</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
-    <span class="k">margin-top</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
-    <span class="k">border-top</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#d5d5d5</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p></style>")</p>
-<p><html></p>
-<p><body>
+		<p><html>
+<head>
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
     <section id="main" class="section">
         <div class="container">
             <div class="columns is-variable is-5">
