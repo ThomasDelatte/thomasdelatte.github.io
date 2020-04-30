@@ -205,29 +205,6 @@
         font-size: 100%;
       }
 &lt;/style&gt;
-&lt;script&gt;
-    MathJax.Hub.Config({
-                        TeX: {
-                           extensions: ["AMSmath.js"],
-                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
-                           },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                },
-                displayAlign: 'center', // Change this to 'center' to center equations.
-                "HTML-CSS": {
-                    scale: 95,
-                        availableFonts: [],
-                        preferredFont:null,
-                        webFont: "TeX",
-                    styles: {'.MathJax_Display': {"margin": 4}}
-                },
-                 "fast-preview": {
-                    "disabled": false
-                }
-        });
-&lt;/script&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -1425,29 +1402,6 @@ Wall time: 78.5 ms
         font-size: 100%;
       }
 &lt;/style&gt;
-&lt;script&gt;
-    MathJax.Hub.Config({
-                        TeX: {
-                           extensions: ["AMSmath.js"],
-                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
-                           },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                },
-                displayAlign: 'center', // Change this to 'center' to center equations.
-                "HTML-CSS": {
-                    scale: 95,
-                        availableFonts: [],
-                        preferredFont:null,
-                        webFont: "TeX",
-                    styles: {'.MathJax_Display': {"margin": 4}}
-                },
-                 "fast-preview": {
-                    "disabled": false
-                }
-        });
-&lt;/script&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -3379,29 +3333,6 @@ weighted avg       0.98      0.98      0.98      3580
         font-size: 100%;
       }
 &lt;/style&gt;
-&lt;script&gt;
-    MathJax.Hub.Config({
-                        TeX: {
-                           extensions: ["AMSmath.js"],
-                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
-                           },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                },
-                displayAlign: 'center', // Change this to 'center' to center equations.
-                "HTML-CSS": {
-                    scale: 95,
-                        availableFonts: [],
-                        preferredFont:null,
-                        webFont: "TeX",
-                    styles: {'.MathJax_Display': {"margin": 4}}
-                },
-                 "fast-preview": {
-                    "disabled": false
-                }
-        });
-&lt;/script&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -4255,29 +4186,6 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
         font-size: 100%;
       }
 &lt;/style&gt;
-&lt;script&gt;
-    MathJax.Hub.Config({
-                        TeX: {
-                           extensions: ["AMSmath.js"],
-                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
-                           },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-                },
-                displayAlign: 'center', // Change this to 'center' to center equations.
-                "HTML-CSS": {
-                    scale: 95,
-                        availableFonts: [],
-                        preferredFont:null,
-                        webFont: "TeX",
-                    styles: {'.MathJax_Display': {"margin": 4}}
-                },
-                 "fast-preview": {
-                    "disabled": false
-                }
-        });
-&lt;/script&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
