@@ -1115,6 +1115,9 @@ h6:hover .anchor-link {
 div.input_area {
     overflow-x: scroll;
 }
+div.prompt.input_prompt {
+    min-width: 0ex;
+}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -3222,6 +3225,9 @@ h6:hover .anchor-link {
 &lt;style&gt;
 div.input_area {
     overflow-x: scroll;
+}
+div.prompt.input_prompt {
+    min-width: 0ex;
 }
 &lt;/style&gt;
 &lt;/head&gt;
@@ -6065,6 +6071,9 @@ h6:hover .anchor-link {
 div.input_area {
     overflow-x: scroll;
 }
+div.prompt.input_prompt {
+    min-width: 0ex;
+}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -7828,6 +7837,9 @@ h6:hover .anchor-link {
 &lt;style&gt;
 div.input_area {
     overflow-x: scroll;
+}
+div.prompt.input_prompt {
+    min-width: 0ex;
 }
 &lt;/style&gt;
 &lt;/head&gt;
