@@ -1180,65 +1180,71 @@ h6:hover .anchor-link {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><head>
 <style>
-div#maintoolbar, div#header {display: none !important;}
-
-div#notebook {border-top: none;}
-
-div.input_prompt {color: #<%= @base["0F"]["hex"] %>;}
-div.output_prompt {color: #<%= @base["0E"]["hex"] %>;}
-div.input_area {
-  border-radius: 0px;
-  border: 1px solid #<%= @base["02"]["hex"] %>;
-}
-div.output_area pre {font-weight: normal; color: #<%= @base["05"]["hex"] %>;}
-
-.rendered_html table, .rendered_html th, .rendered_html tr, .rendered_html td {
-  border: 1px  #<%= @base["05"]["hex"] %> solid;
-  color: #<%= @base["05"]["hex"] %>;
-}
-div.output_html { font-family: sans-serif; }
-table.dataframe tr {border: 1px #<%= @base["05"]["hex"] %>;}
-
-div.cell.selected {border-radius: 0px;}
-div.cell.edit_mode {border-radius: 0px; border: thin solid #<%= @base["0E"]["hex"] %>;}
-div.text_cell_render, div.output_html {color: #<%= @base["05"]["hex"] %>;}
-
-span.ansiblack {color: #<%= @base["01"]["hex"] %>;}
-span.ansiblue {color: #<%= @base["0C"]["hex"] %>;}
-span.ansigray {color: #<%= @base["04"]["hex"] %>;}
-span.ansigreen {color: #<%= @base["0B"]["hex"] %>;}
-span.ansipurple {color: #<%= @base["0E"]["hex"] %>;}
-span.ansired {color: #<%= @base["08"]["hex"] %>;}
-span.ansiyellow {color: #<%= @base["0A"]["hex"] %>;}
-
-div.output_stderr {background-color: #<%= @base["08"]["hex"] %>;}
-div.output_stderr pre {color: #<%= @base["06"]["hex"] %>;}
-
-.cm-s-ipython.CodeMirror {background: #<%= @base["00"]["hex"] %>; color: #<%= @base["06"]["hex"] %>;}
-.cm-s-ipython div.CodeMirror-selected {background: #<%= @base["01"]["hex"] %> !important;}
-.cm-s-ipython .CodeMirror-gutters {background: #<%= @base["00"]["hex"] %>; border-right: 0px;}
-.cm-s-ipython .CodeMirror-linenumber {color: #<%= @base["03"]["hex"] %>;}
-.cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #<%= @base["04"]["hex"] %> !important;}
-
-.cm-s-ipython span.cm-comment {color: #<%= @base["0F"]["hex"] %>;}
-.cm-s-ipython span.cm-atom {color: #<%= @base["0E"]["hex"] %>;}
-.cm-s-ipython span.cm-number {color: #<%= @base["0E"]["hex"] %>;}
-
-.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-attribute {color: #<%= @base["0B"]["hex"] %>;}
-.cm-s-ipython span.cm-keyword {color: #<%= @base["08"]["hex"] %>;}
-.cm-s-ipython span.cm-string {color: #<%= @base["0A"]["hex"] %>;}
-.cm-s-ipython span.cm-operator {color: #<%= @base["0F"]["hex"] %>;}
-.cm-s-ipython span.cm-builtin {color: #<%= @base["0E"]["hex"] %>;}
-
-.cm-s-ipython span.cm-variable {color: #<%= @base["0B"]["hex"] %>;}
-.cm-s-ipython span.cm-variable-2 {color: #<%= @base["0D"]["hex"] %>;}
-.cm-s-ipython span.cm-def {color: #<%= @base["09"]["hex"] %>;}
-.cm-s-ipython span.cm-error {background: #<%= @base["08"]["hex"] %>; color: #<%= @base["04"]["hex"] %>;}
-.cm-s-ipython span.cm-bracket {color: #<%= @base["05"]["hex"] %>;}
-.cm-s-ipython span.cm-tag {color: #<%= @base["08"]["hex"] %>;}
-.cm-s-ipython span.cm-link {color: #<%= @base["0E"]["hex"] %>;}
-
-.cm-s-ipython .CodeMirror-matchingbracket { text-decoration: underline; color: #<%= @base["06"]["hex"] %> !important;}
+.syntax .hll { background-color: #<%= @base["02"]["hex"] %> }
+.syntax  { background: #<%= @base["00"]["hex"] %>; color: #<%= @base["07"]["hex"] %> }
+.syntax .c { color: #<%= @base["03"]["hex"] %> } /* Comment */
+.syntax .err { color: #<%= @base["08"]["hex"] %> } /* Error */
+.syntax .k { color: #<%= @base["0E"]["hex"] %> } /* Keyword */
+.syntax .l { color: #<%= @base["09"]["hex"] %> } /* Literal */
+.syntax .n { color: #<%= @base["07"]["hex"] %> } /* Name */
+.syntax .o { color: #<%= @base["0C"]["hex"] %> } /* Operator */
+.syntax .p { color: #<%= @base["07"]["hex"] %> } /* Punctuation */
+.syntax .cm { color: #<%= @base["03"]["hex"] %> } /* Comment.Multiline */
+.syntax .cp { color: #<%= @base["03"]["hex"] %> } /* Comment.Preproc */
+.syntax .c1 { color: #<%= @base["03"]["hex"] %> } /* Comment.Single */
+.syntax .cs { color: #<%= @base["03"]["hex"] %> } /* Comment.Special */
+.syntax .gd { color: #<%= @base["08"]["hex"] %> } /* Generic.Deleted */
+.syntax .ge { font-style: italic } /* Generic.Emph */
+.syntax .gh { color: #<%= @base["07"]["hex"] %>; font-weight: bold } /* Generic.Heading */
+.syntax .gi { color: #<%= @base["0B"]["hex"] %> } /* Generic.Inserted */
+.syntax .gp { color: #<%= @base["03"]["hex"] %>; font-weight: bold } /* Generic.Prompt */
+.syntax .gs { font-weight: bold } /* Generic.Strong */
+.syntax .gu { color: #<%= @base["0C"]["hex"] %>; font-weight: bold } /* Generic.Subheading */
+.syntax .kc { color: #<%= @base["0E"]["hex"] %> } /* Keyword.Constant */
+.syntax .kd { color: #<%= @base["0E"]["hex"] %> } /* Keyword.Declaration */
+.syntax .kn { color: #<%= @base["0C"]["hex"] %> } /* Keyword.Namespace */
+.syntax .kp { color: #<%= @base["0E"]["hex"] %> } /* Keyword.Pseudo */
+.syntax .kr { color: #<%= @base["0E"]["hex"] %> } /* Keyword.Reserved */
+.syntax .kt { color: #<%= @base["0A"]["hex"] %> } /* Keyword.Type */
+.syntax .ld { color: #<%= @base["0B"]["hex"] %> } /* Literal.Date */
+.syntax .m { color: #<%= @base["09"]["hex"] %> } /* Literal.Number */
+.syntax .s { color: #<%= @base["0B"]["hex"] %> } /* Literal.String */
+.syntax .na { color: #<%= @base["0D"]["hex"] %> } /* Name.Attribute */
+.syntax .nb { color: #<%= @base["07"]["hex"] %> } /* Name.Builtin */
+.syntax .nc { color: #<%= @base["0A"]["hex"] %> } /* Name.Class */
+.syntax .no { color: #<%= @base["08"]["hex"] %> } /* Name.Constant */
+.syntax .nd { color: #<%= @base["0C"]["hex"] %> } /* Name.Decorator */
+.syntax .ni { color: #<%= @base["07"]["hex"] %> } /* Name.Entity */
+.syntax .ne { color: #<%= @base["08"]["hex"] %> } /* Name.Exception */
+.syntax .nf { color: #<%= @base["0D"]["hex"] %> } /* Name.Function */
+.syntax .nl { color: #<%= @base["07"]["hex"] %> } /* Name.Label */
+.syntax .nn { color: #<%= @base["0A"]["hex"] %> } /* Name.Namespace */
+.syntax .nx { color: #<%= @base["0D"]["hex"] %> } /* Name.Other */
+.syntax .py { color: #<%= @base["07"]["hex"] %> } /* Name.Property */
+.syntax .nt { color: #<%= @base["0C"]["hex"] %> } /* Name.Tag */
+.syntax .nv { color: #<%= @base["08"]["hex"] %> } /* Name.Variable */
+.syntax .ow { color: #<%= @base["0C"]["hex"] %> } /* Operator.Word */
+.syntax .w { color: #<%= @base["07"]["hex"] %> } /* Text.Whitespace */
+.syntax .mf { color: #<%= @base["09"]["hex"] %> } /* Literal.Number.Float */
+.syntax .mh { color: #<%= @base["09"]["hex"] %> } /* Literal.Number.Hex */
+.syntax .mi { color: #<%= @base["09"]["hex"] %> } /* Literal.Number.Integer */
+.syntax .mo { color: #<%= @base["09"]["hex"] %> } /* Literal.Number.Oct */
+.syntax .sb { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Backtick */
+.syntax .sc { color: #<%= @base["07"]["hex"] %> } /* Literal.String.Char */
+.syntax .sd { color: #<%= @base["03"]["hex"] %> } /* Literal.String.Doc */
+.syntax .s2 { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Double */
+.syntax .se { color: #<%= @base["09"]["hex"] %> } /* Literal.String.Escape */
+.syntax .sh { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Heredoc */
+.syntax .si { color: #<%= @base["09"]["hex"] %> } /* Literal.String.Interpol */
+.syntax .sx { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Other */
+.syntax .sr { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Regex */
+.syntax .s1 { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Single */
+.syntax .ss { color: #<%= @base["0B"]["hex"] %> } /* Literal.String.Symbol */
+.syntax .bp { color: #<%= @base["07"]["hex"] %> } /* Name.Builtin.Pseudo */
+.syntax .vc { color: #<%= @base["08"]["hex"] %> } /* Name.Variable.Class */
+.syntax .vg { color: #<%= @base["08"]["hex"] %> } /* Name.Variable.Global */
+.syntax .vi { color: #<%= @base["08"]["hex"] %> } /* Name.Variable.Instance */
+.syntax .il { color: #<%= @base["09"]["hex"] %> } /* Literal.Number.Integer.Long */ !important;}
 </style>
 </head>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
