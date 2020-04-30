@@ -1111,7 +1111,6 @@ h6:hover .anchor-link {
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
-("#div.prompt.input_prompt").remove();
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -3223,7 +3222,6 @@ h6:hover .anchor-link {
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
-("#div.prompt.input_prompt").remove();
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -6069,7 +6067,6 @@ h6:hover .anchor-link {
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
-("#div.prompt.input_prompt").remove();
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -7837,7 +7834,6 @@ h6:hover .anchor-link {
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
-("#div.prompt.input_prompt").remove();
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
