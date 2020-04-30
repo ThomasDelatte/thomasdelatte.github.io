@@ -3239,21 +3239,6 @@ div#maintoolbar {
 #header-container {
  display: none !important;
 }
-
-&lt;script&gt;
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            /*preferredFont: "TeX",*/
-            /*availableFonts: ["TeX", "STIX"],*/
-            styles: {
-                scale: 100,
-                ".MathJax_Display": {
-                    "font-size": "100%",
-                }
-            }
-        }
-    });
-&lt;/script&gt;
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -7486,21 +7471,6 @@ div#maintoolbar {
 #header-container {
  display: none !important;
 }
-
-&lt;script&gt;
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            /*preferredFont: "TeX",*/
-            /*availableFonts: ["TeX", "STIX"],*/
-            styles: {
-                scale: 100,
-                ".MathJax_Display": {
-                    "font-size": "100%",
-                }
-            }
-        }
-    });
-&lt;/script&gt;
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -12467,21 +12437,6 @@ div#maintoolbar {
 #header-container {
  display: none !important;
 }
-
-&lt;script&gt;
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            /*preferredFont: "TeX",*/
-            /*availableFonts: ["TeX", "STIX"],*/
-            styles: {
-                scale: 100,
-                ".MathJax_Display": {
-                    "font-size": "100%",
-                }
-            }
-        }
-    });
-&lt;/script&gt;
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -16370,21 +16325,6 @@ div#maintoolbar {
 #header-container {
  display: none !important;
 }
-
-&lt;script&gt;
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            /*preferredFont: "TeX",*/
-            /*availableFonts: ["TeX", "STIX"],*/
-            styles: {
-                scale: 100,
-                ".MathJax_Display": {
-                    "font-size": "100%",
-                }
-            }
-        }
-    });
-&lt;/script&gt;
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
