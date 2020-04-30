@@ -1113,7 +1113,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 div.prompt.input_prompt {
     min-width: 0ex;
@@ -3224,7 +3224,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 div.prompt.input_prompt {
     min-width: 0ex;
@@ -6069,7 +6069,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 div.prompt.input_prompt {
     min-width: 0ex;
@@ -7836,7 +7836,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 div.prompt.input_prompt {
     min-width: 0ex;
