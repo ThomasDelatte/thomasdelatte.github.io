@@ -1207,15 +1207,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+
+<div class="collapseheader inner_cell"><span style="font-weight: bold;">Expand Code</span>
+<div class="input_area" style="display:none">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="c1"># Data analysis</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1234,13 +1232,12 @@ div.prompt.input_prompt {
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 </pre></div>
 
-    </div>
 </div>
 </div>
 
 </div>
-    {% endraw %}
 
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1250,14 +1247,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Identify the coordinates of the centers</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Identify the coordinates of the centers</span>
 <span class="n">blob_centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">]])</span>
 
 <span class="c1"># Determine the standard deviation of each cluster</span>
@@ -1271,11 +1267,10 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1284,14 +1279,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># Plot the data points</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
@@ -1304,23 +1298,22 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1346,8 +1339,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1356,25 +1347,23 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1383,20 +1372,20 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
 
 <span class="n">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1422,8 +1411,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1454,14 +1441,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The &quot;n_init&quot; parameter is set to 1 to avoid starting with a better-than-random initialization</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The &quot;n_init&quot; parameter is set to 1 to avoid starting with a better-than-random initialization</span>
 <span class="c1"># Algorithm is set to &quot;full&quot; to get the classical EM-style algorithm</span>
 <span class="k">def</span> <span class="nf">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span>
@@ -1480,19 +1466,17 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting how centroids and clusters move after n iterations</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting how centroids and clusters move after n iterations</span>
 <span class="n">iter_1</span><span class="p">,</span> <span class="n">centers_1</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">iter_3</span><span class="p">,</span> <span class="n">centers_3</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">iter_5</span><span class="p">,</span> <span class="n">centers_5</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -1519,6 +1503,7 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1533,7 +1518,7 @@ div.prompt.input_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Text(0.5, 1.0, &#39;Centroids after 10 iterations&#39;)</pre>
+<pre class="ipynb">Text(0.5, 1.0, &#39;Centroids after 10 iterations&#39;)</pre>
 </div>
 
 </div>
@@ -1557,8 +1542,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1568,14 +1551,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k_clusters</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k_clusters</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implements the k-means algorithm from scratch&quot;&quot;&quot;</span>
 
     <span class="c1"># Randomly choose clusters from data points</span>
@@ -1602,11 +1584,10 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1615,20 +1596,20 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="n">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1654,8 +1635,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1673,20 +1652,20 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">centers</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">plot_clusters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1712,8 +1691,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1724,19 +1701,19 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using Scikit-learn API</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using Scikit-learn API</span>
 <span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1751,7 +1728,7 @@ div.prompt.input_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>106.41004125439397</pre>
+<pre class="ipynb">106.41004125439397</pre>
 </div>
 
 </div>
@@ -1760,8 +1737,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1780,14 +1755,13 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for k=3 and k=7</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for k=3 and k=7</span>
 
 <span class="n">clusters_n3</span><span class="p">,</span> <span class="n">centers_n3</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">clusters_n7</span><span class="p">,</span> <span class="n">centers_n7</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
@@ -1801,6 +1775,7 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1826,8 +1801,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1841,23 +1814,21 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for elbow graph</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for elbow graph</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1866,23 +1837,21 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for silhouette graph</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code for silhouette graph</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1893,36 +1862,34 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_moons</span><span class="p">,</span> <span class="n">y_moons</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_moons</span><span class="p">,</span> <span class="n">y_moons</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans_iter</span><span class="p">(</span><span class="n">X_moons</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 </div>
-    {% endraw %}
-
-    {% raw %}
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
+
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_clusters</span><span class="p">(</span><span class="n">X_moons</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
+        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_clusters</span><span class="p">(</span><span class="n">X_moons</span><span class="p">,</span> <span class="n">clusters</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1948,8 +1915,6 @@ div.prompt.input_prompt {
 </div>
 
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1964,9 +1929,7 @@ div.prompt.input_prompt {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>youtube: <a href="https://youtu.be/watch?v=4b5d3muPQmA">https://youtu.be/watch?v=4b5d3muPQmA</a></p>
-</blockquote>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4b5d3muPQmA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </div>
 </div>
