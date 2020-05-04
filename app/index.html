@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>app | Thomas Delatte</title>
+	<meta name="description" content="html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding: 1em !important } section { min-height: 95% !important } .gen-box { background-color: #fff; display: block; padding: 1.25rem; color: #4a4a4a; font-size: 1rem; font-weight: 400; line-height: 1.25; } .gen-border { height: 0.25em; background-color: #d5d5d5 …">
+	<meta name="author" content="Thomas Delatte">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@thomasdelatte">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@thomasdelatte">
+	<meta property="og:title" content="app">
+	<meta property="og:description" content="html, body { height: 95% !important; margin: 0 !important; } footer { /*max-height: 5% !important;*/ padding: 1em !important } section { min-height: 95% !important } .gen-box { background-color: #fff; display: block; padding: 1.25rem; color: #4a4a4a; font-size: 1rem; font-weight: 400; line-height: 1.25; } .gen-border { height: 0.25em; background-color: #d5d5d5 …">
+	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://thomasdelatte.github.io/app/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<meta name="theme-color" content="#FF8000">
+
+	<meta name="msapplication-TileColor" content="#FF8000">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">Thomas Delatte</a></div>
+			<div id="bio"></div>
+
+			<div id="sidebar-links">
+				<a href="/about/">About</a>&nbsp;|&nbsp;<a href="/portfolio/">Portfolio</a>
+			</div>
+
+			<div id="social">
+				<a href="https://twitter.com/thomasdelatte" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="https://github.com/ThomasDelatte" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.linkedin.com/in/thomasdelatte" title="LinkedIn" class="icon fa fa-linkedin"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/app/" title="app">app</a></h1>
+	<div class="content">
+		<style>
+    html,
+    body {
+        height: 95% !important;
+        margin: 0 !important;
+    }
+
+    footer {
+        /*max-height: 5% !important;*/
+        padding: 1em !important
+    }
+
+    section {
+        min-height: 95% !important
+    }
+
+    .gen-box {
+        background-color: #fff;
+        display: block;
+        padding: 1.25rem;
+        color: #4a4a4a;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.25;
+    }
+
+    .gen-border {
+        height: 0.25em;
+        background-color: #d5d5d5;
+    }
+
+    .gen-box.warning {
+        color: red;
+        font-weight: 700;
+
+    }
+
+    .brand-text {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em
+    }
+
+    #extra-buttons {
+        padding-top: 1em;
+        margin-top: 1em;
+        border-top: 0.5px solid #d5d5d5;
+    }
+</style>
+
+<p><html></p>
+<p><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <section id="main" class="section">
+        <div class="container">
+            <div class="columns is-variable is-5">
+                <div class="column is-narrow" style="width: 250px;">
+                    <form id="gen-form">
+                        <div class="field">
+                            <label class="label">Text Prompt</label>
+                            <div class="control">
+                                <textarea id="prefix" class="textarea" type="text" placeholder="Donald Trump" rows="2"></textarea>
+                            </div>
+                            <p class="help">Starts the generated text with the specified text. <em>(Optional: max 500 characters)</em>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Generated Text Length</label>
+                            <div class="control">
+                                <input id="length" class="input" type="text" placeholder="Text input" value="100">
+                            </div>
+                            <p class="help">Length of the text in tokens to generate. <em>(max: 1023)</em></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Temperature</label>
+                            <div class="control">
+                                <input id="temperature" class="input" type="text" placeholder="0.7" value="0.7">
+                            </div>
+                            <p class="help">Controls the generated text "creativity." <em>(the higher the temperature, the more
+                                    creative)</em></p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Top <em>k</em></label>
+                            <div class="control">
+                                <input id="top_k" class="input" type="text" placeholder="40" value="40">
+                            </div>
+                            <p class="help">Constrains the generated text tokens to the top <em>k</em> possibilities. <em>(set to 0 to
+                                    disable)</em></p>
+                        </div>
+                        <div class="buttons">
+                            <span class="control">
+                                <button type="submit" name="submit" id="generate-text" class="button is-link">
+                                    <span class="icon">
+                                        <i class="fas fa-md fa-pen"></i>
+                                    </span><span>Generate Text!</span></button>
+                            </span>
+                        </div>
+                    </form>
+                    <div id="extra-buttons" class="buttons">
+                        <span class="control">
+                            <button id="save-image" class="button is-success">
+                                <span class="icon">
+                                    <i class="fas fa-md fa-save"></i>
+                                </span><span>Save Image</span></button>
+                        </span>
+                        <span class="control">
+                            <button id="clear-text" class="button is-danger">
+                                <span class="icon">
+                                    <i class="fas fa-md fa-trash-alt"></i>
+                                </span><span>Clear Texts</span< /button> </span> </div>
+                </div>
+                <div id="model-output" class="column">
+                    <p id="tutorial" class="subtitle"><em>Generated text will appear here!
+                            Use the form to configure GPT-2 and press <strong>Generate Text</strong>
+                            to get your own text!
+                        </em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body></p>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+
+<script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js">
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#gen-form').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "https://eu-text-generator-lpl4nmyypq-ew.a.run.app",
+                dataType: "json",
+                data: JSON.stringify(getInputValues()),
+                beforeSend: function (data) {
+                    $('#generate-text').addClass("is-loading");
+                    $('#generate-text').prop("disabled", true);
+                },
+                success: function (data) {
+                    $('#generate-text').removeClass("is-loading");
+                    $('#generate-text').prop("disabled", false);
+                    $('#tutorial').remove();
+                    var gentext = data.text;
+                    if ($("#prefix").length & $("#prefix").val() != '') {
+                        var pattern = new RegExp('^' + $("#prefix").val(), 'g');
+                        var gentext = gentext.replace(pattern, '<strong>' + $("#prefix").val() + '</strong>');
+                    }
+
+                    var gentext = gentext.replace(/\n\n/g, "<div><br></div>").replace(/\n/g, "<div></div>");
+                    var html = '<div class=\"gen-box\">' + gentext + '</div><div class="gen-border"></div>';
+                    $(html).appendTo('#model-output').hide().fadeIn("slow");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $('#generate-text').removeClass("is-loading");
+                    $('#generate-text').prop("disabled", false);
+                    $('#tutorial').remove();
+                    var html = '<div class="gen-box warning">There was an error generating the text! Please try again!</div><div class="gen-border"></div>';
+                    $(html).appendTo('#model-output').hide().fadeIn("slow");
+                }
+            });
+        });
+        $('#clear-text').click(function (e) {
+            $('#model-output').text('')
+        });
+
+        // https://stackoverflow.com/a/51478809
+        $("#save-image").click(function () {
+
+            html2canvas(document.querySelector('#model-output')).then(function (canvas) {
+
+                saveAs(canvas.toDataURL(), 'gen_texts.png');
+            });
+        });
+
+    });
+
+    function getInputValues() {
+        var inputs = {};
+        $("textarea, input").each(function () {
+            inputs[$(this).attr('id')] = $(this).val();
+        });
+        return inputs;
+    }
+
+    // https://stackoverflow.com/a/51478809
+    function saveAs(uri, filename) {
+
+        var link = document.createElement('a');
+
+        if (typeof link.download === 'string') {
+
+            link.href = uri;
+            link.download = filename;
+
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+
+            //simulate click
+            link.click();
+
+            //remove the link when done
+            document.body.removeChild(link);
+
+        } else {
+
+            window.open(uri);
+
+        }
+    }
+
+
+</script>
+
+<p></html></p>
+	</div>
+	<div id="back-to-home"><a href="/">&laquo; Back to Home</a></div>
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-163901213-1', '');
+		ga('send', 'pageview');
+	</script>
+
+</body>
+</html>
