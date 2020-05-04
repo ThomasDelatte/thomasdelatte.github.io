@@ -1188,28 +1188,6 @@ div.prompt.input_prompt {
 }
 </style>
 </head>
-<body>
-  <script>
-      function code_toggle() {
-        if (code_shown){
-          $('div.input').hide('500');
-          $('#toggleButton').val('Show Code')
-        } else {
-          $("div.input:not(:first)").show('500');
-          $('#toggleButton').val('Hide Code')
-        }
-        code_shown = !code_shown
-      }
-
-      $( document ).ready(function(){
-        code_shown=false;
-        $('div.input').hide()
-      });
-  </script>
-  <form action="javascript:code_toggle()" style="position:fixed;left:10px;top:10px"><input type="submit" id="toggleButton" value="Show Code"></form>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1219,6 +1197,8 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
@@ -1241,6 +1221,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -1274,6 +1258,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1282,6 +1268,8 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -1298,6 +1286,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -1319,6 +1311,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -1362,6 +1358,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1369,6 +1367,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
@@ -1430,6 +1430,10 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -1463,6 +1467,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1470,6 +1476,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -1512,6 +1520,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1528,6 +1538,8 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
@@ -1615,6 +1627,10 @@ None
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
@@ -1687,6 +1703,10 @@ Epoch 20/20
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
@@ -1724,6 +1744,10 @@ Epoch 20/20
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
@@ -1759,6 +1783,8 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
 </div>
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1766,6 +1792,8 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[73]:</div>
@@ -1816,9 +1844,8 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
 </div>
 
 </div>
-    </div>
-  </div>
-</body>
+    {% endraw %}
+
  
 
 

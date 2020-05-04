@@ -1188,28 +1188,6 @@ div.prompt.input_prompt {
 }
 </style>
 </head>
-<body>
-  <script>
-      function code_toggle() {
-        if (code_shown){
-          $('div.input').hide('500');
-          $('#toggleButton').val('Show Code')
-        } else {
-          $("div.input:not(:first)").show('500');
-          $('#toggleButton').val('Hide Code')
-        }
-        code_shown = !code_shown
-      }
-
-      $( document ).ready(function(){
-        code_shown=false;
-        $('div.input').hide()
-      });
-  </script>
-  <form action="javascript:code_toggle()" style="position:fixed;left:10px;top:10px"><input type="submit" id="toggleButton" value="Show Code"></form>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1225,6 +1203,8 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -1248,6 +1228,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -1281,6 +1265,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
@@ -1321,6 +1309,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -1339,6 +1331,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -1358,6 +1354,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -1374,6 +1374,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -1411,6 +1415,10 @@ X_test&#39;s shape: (1783, 9216)
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -1452,6 +1460,10 @@ X_test&#39;s shape: (1783, 9216)
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -1468,6 +1480,10 @@ X_test&#39;s shape: (1783, 9216)
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -1556,6 +1572,10 @@ Final loss of validation data: 112.7545339281314
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -1791,6 +1811,10 @@ Final loss of validation data: 9.25821566358905
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
@@ -1827,6 +1851,10 @@ Final loss of validation data: 9.25821566358905
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
@@ -1867,9 +1895,8 @@ Final loss of validation data: 9.25821566358905
 </div>
 
 </div>
-    </div>
-  </div>
-</body>
+    {% endraw %}
+
  
 
 
