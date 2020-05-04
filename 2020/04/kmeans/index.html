@@ -1188,28 +1188,6 @@ div.prompt.input_prompt {
 }
 </style>
 </head>
-<body>
-  <script>
-      function code_toggle() {
-        if (code_shown){
-          $('div.input').hide('500');
-          $('#toggleButton').val('Show Code')
-        } else {
-          $("div.input:not(:first)").show('500');
-          $('#toggleButton').val('Hide Code')
-        }
-        code_shown = !code_shown
-      }
-
-      $( document ).ready(function(){
-        code_shown=false;
-        $('div.input').hide()
-      });
-  </script>
-  <form action="javascript:code_toggle()" style="position:fixed;left:10px;top:10px"><input type="submit" id="toggleButton" value="Show Code"></form>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1230,6 +1208,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
@@ -1258,6 +1237,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1268,6 +1249,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
@@ -1289,6 +1271,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1298,6 +1282,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
@@ -1318,7 +1303,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
@@ -1328,6 +1316,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1362,6 +1352,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
@@ -1376,6 +1367,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1385,6 +1378,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
@@ -1396,6 +1390,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1452,6 +1448,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
@@ -1478,7 +1475,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
@@ -1510,6 +1510,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1558,6 +1560,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
@@ -1592,6 +1595,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1601,6 +1606,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
@@ -1612,6 +1618,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1655,6 +1663,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
@@ -1666,6 +1675,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1702,6 +1713,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
@@ -1712,6 +1724,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1754,6 +1768,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
@@ -1772,6 +1787,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1811,6 +1828,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
@@ -1823,6 +1841,8 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1832,6 +1852,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
@@ -1841,6 +1862,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -1855,6 +1878,7 @@ div.prompt.input_prompt {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
@@ -1868,7 +1892,10 @@ div.prompt.input_prompt {
 </div>
 
 </div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input_hidden">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
@@ -1878,6 +1905,8 @@ div.prompt.input_prompt {
 
     </div>
 </div>
+</div>
+
 </div>
 
 <div class="output_wrapper">
@@ -1914,9 +1943,6 @@ div.prompt.input_prompt {
 </div>
 </div>
 </div>
-    </div>
-  </div>
-</body>
  
 
 
