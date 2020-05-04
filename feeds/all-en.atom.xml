@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Thomas Delatte</title><link href="https://thomasdelatte.github.io/" rel="alternate"></link><link href="https://thomasdelatte.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://thomasdelatte.github.io/</id><updated>2020-04-15T00:00:00+02:00</updated><entry><title>Clustering with K-Means</title><link href="https://thomasdelatte.github.io/2020/04/kmeans/" rel="alternate"></link><published>2020-04-15T00:00:00+02:00</published><updated>2020-04-15T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-15:/2020/04/kmeans/</id><summary type="html">&lt;p&gt;An introduction to the k-means algorithm.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Thomas Delatte</title><link href="https://thomasdelatte.github.io/" rel="alternate"></link><link href="https://thomasdelatte.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://thomasdelatte.github.io/</id><updated>2020-04-15T00:00:00+02:00</updated><entry><title>Understanding K-Means Clustering</title><link href="https://thomasdelatte.github.io/2020/04/kmeans/" rel="alternate"></link><published>2020-04-15T00:00:00+02:00</published><updated>2020-04-15T00:00:00+02:00</updated><author><name>Thomas Delatte</name></author><id>tag:thomasdelatte.github.io,2020-04-15:/2020/04/kmeans/</id><summary type="html">&lt;head&gt;
+&lt;style&gt;
+div.input_area {
+    overflow-x: auto;
+}
+div.prompt.input_prompt {
+    min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
+}
+div.prompt {
+    min-width: 0ex;
+}
+&lt;/style&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Clustering is a broad set of techniques for finding subgroups of observations within a data set. When we cluster observations, we want observations in the same group to be similar and observations in different groups to be dissimilar. Because there isn’t a response variable, this is an unsupervised method, which implies that it seeks to find relationships between the n observations without being trained by a response variable. Clustering allows us to identify which observations are alike, and potentially categorize them therein.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1110,7 +1131,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -1180,7 +1201,7 @@ div.prompt {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;As usual, the first part of the problem is to collect as much data as possible. For educational purposes, we can type up a code to generate an artificial data set. But the technique can easily be applied to any real-world datasets that are structured similarly.&lt;/p&gt;
+&lt;p&gt;For educational purposes, we can type up a code to generate an artificial data set. But the technique can easily be applied to any real-world datasets that are structured similarly.&lt;/p&gt;
 &lt;p&gt;Let's generate a small dataset in two dimensions with five distinct clusters.&lt;/p&gt;
 
 &lt;/div&gt;
@@ -1353,7 +1374,7 @@ div.prompt {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="K-Means-Algorithm:-Expectation&amp;#8211;Maximization"&gt;K-Means Algorithm: Expectation&amp;#8211;Maximization&lt;a class="anchor-link" href="#K-Means-Algorithm:-Expectation&amp;#8211;Maximization"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In a nutshell, the Expectation–Maximization algorithm involves the following iterative steps:&lt;/p&gt;
+&lt;h2 id="K-Means-Algorithm:-Expectation&amp;#8211;Maximization"&gt;K-Means Algorithm: Expectation&amp;#8211;Maximization&lt;a class="anchor-link" href="#K-Means-Algorithm:-Expectation&amp;#8211;Maximization"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Expectation–Maximization algorithm involves the following iterative steps:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Initialize centroids randomly by choosing random instances of the dataset&lt;/li&gt;
 &lt;li&gt;Repeat the following steps until convergence (until the centroids stop moving):&lt;ul&gt;
@@ -1470,22 +1491,21 @@ div.prompt {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Implementing-the-algorithm-from-scratch"&gt;Implementing the algorithm from scratch&lt;a class="anchor-link" href="#Implementing-the-algorithm-from-scratch"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Blablabla&lt;/p&gt;
-&lt;p&gt;The k-means algorithm is simple enough to be implemented in a few lines:&lt;/p&gt;
+&lt;h2 id="Implementing-the-algorithm-from-scratch"&gt;Implementing the algorithm from scratch&lt;a class="anchor-link" href="#Implementing-the-algorithm-from-scratch"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The k-means algorithm is simple enough to be implemented in a few lines:&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[22]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;kmeans_from_scratch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k_clusters&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Implements the k-means algorithm from scratch&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 
     &lt;span class="c1"&gt;# Randomly choose clusters from data points&lt;/span&gt;
-    &lt;span class="c1"&gt;# Create a random number generator by shuffling data points and selecting the n first data points&lt;/span&gt;
+    &lt;span class="c1"&gt;# Random number generator by shuffling data points and selecting the n first&lt;/span&gt;
     &lt;span class="n"&gt;rng&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RandomState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rng&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;permutation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])[:&lt;/span&gt;&lt;span class="n"&gt;k_clusters&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
     &lt;span class="n"&gt;centers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -1738,8 +1758,8 @@ div.prompt {
 &lt;li&gt;Elbow method&lt;/li&gt;
 &lt;li&gt;Silhouette method&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id="Elbow-Method"&gt;Elbow Method&lt;a class="anchor-link" href="#Elbow-Method"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;We just saw while discussing initialization methods' importance a useful metric: inertia. Could we use this metric to select the right number of clusters?&lt;/p&gt;
-&lt;p&gt;Let's calculate the inertia for clusters from 2 to 10 and compare them visually:&lt;/p&gt;
+&lt;h3 id="Elbow-Method"&gt;Elbow Method&lt;a class="anchor-link" href="#Elbow-Method"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We just saw while discussing initialization methods' importance a useful metric: inertia. Could we use this metric to select the right number of clusters?&lt;/p&gt;
+&lt;p&gt;Let's calculate the inertia for clusters from 2 to 10 and compare them visually.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1828,7 +1848,7 @@ div.prompt {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Silhouette-Method"&gt;Silhouette Method&lt;a class="anchor-link" href="#Silhouette-Method"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;The average silhouette approach measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. The average silhouette method computes the average silhouette of observations for different values of k. The optimal number of clusters k is the one that maximizes the average silhouette over a range of possible values for k.&lt;/p&gt;
+&lt;h3 id="Silhouette-Method"&gt;Silhouette Method&lt;a class="anchor-link" href="#Silhouette-Method"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The average silhouette approach measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. The average silhouette method computes the average silhouette of observations for different values of k. The optimal number of clusters k is the one that maximizes the average silhouette over a range of possible values for k.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1976,6 +1996,7 @@ div.prompt {
 &lt;h2 id="Conclusion"&gt;Conclusion&lt;a class="anchor-link" href="#Conclusion"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;K-means clustering is a very simple and fast algorithm. Furthermore, it can efficiently deal with very large data sets. However, there are some weaknesses of the k-means approach.&lt;/p&gt;
 &lt;p&gt;One potential disadvantage of K-means clustering is that it requires us to pre-specify the number of clusters. Hierarchical clustering is an alternative approach which does not require that we commit to a particular choice of clusters. Hierarchical clustering has an added advantage over K-means clustering in that it results in an attractive tree-based representation of the observations, called a dendrogram. A future tutorial will illustrate the hierarchical clustering approach.&lt;/p&gt;
 &lt;p&gt;An additional disadvantage of K-means is that it’s sensitive to outliers and different results can occur if you change the ordering of your data.&lt;/p&gt;
+&lt;p&gt;For a very intuitive and visual explanation, check out the excellent Statquest with his video on K-Means!&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1989,7 +2010,7 @@ div.prompt {
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

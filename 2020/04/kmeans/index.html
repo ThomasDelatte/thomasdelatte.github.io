@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Clustering with K-Means | Thomas Delatte</title>
-	<meta name="description" content="An introduction to the k-means algorithm.">
+	<title>Understanding K-Means Clustering | Thomas Delatte</title>
+	<meta name="description" content="div.input_area { overflow-x: auto; } div.prompt.input_prompt { min-width: 0ex; display: none; } div.prompt.output_prompt { min-width: 0ex; display: none; } div.prompt { min-width: 0ex; } Clustering is a broad set of techniques for finding subgroups of observations within a data set. When we cluster observations, we want observations in the same group to be similar and observations in different groups to be dissimilar. Because there isn’t a response variable, this is an unsupervised method, which implies that it seeks to find relationships between the n observations without being trained by a response variable. Clustering allows us to identify which observations are alike, and potentially categorize them therein.">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,8 +14,8 @@
 	<meta name="twitter:creator" content="@thomasdelatte">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
-	<meta property="og:title" content="Clustering with K-Means">
-	<meta property="og:description" content="An introduction to the k-means algorithm.">
+	<meta property="og:title" content="Understanding K-Means Clustering">
+	<meta property="og:description" content="div.input_area { overflow-x: auto; } div.prompt.input_prompt { min-width: 0ex; display: none; } div.prompt.output_prompt { min-width: 0ex; display: none; } div.prompt { min-width: 0ex; } Clustering is a broad set of techniques for finding subgroups of observations within a data set. When we cluster observations, we want observations in the same group to be similar and observations in different groups to be dissimilar. Because there isn’t a response variable, this is an unsupervised method, which implies that it seeks to find relationships between the n observations without being trained by a response variable. Clustering allows us to identify which observations are alike, and potentially categorize them therein.">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="https://thomasdelatte.github.io/2020/04/kmeans/">
@@ -64,7 +64,7 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/2020/04/kmeans/" title="Permalink to Clustering with K-Means">Clustering with K-Means</a></h1>
+	<h1 class="title"><a href="/2020/04/kmeans/" title="Permalink to Understanding K-Means Clustering">Understanding K-Means Clustering</a></h1>
 	<time class="date" datetime="2020-04-15 00:00:00+02:00">April 15, 2020</time>
 	<div class="content">
 		<style type="text/css">/*!
@@ -1178,7 +1178,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><head>
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><head>
 <style>
 div.input_area {
     overflow-x: auto;
@@ -1248,7 +1248,7 @@ div.prompt {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As usual, the first part of the problem is to collect as much data as possible. For educational purposes, we can type up a code to generate an artificial data set. But the technique can easily be applied to any real-world datasets that are structured similarly.</p>
+<p>For educational purposes, we can type up a code to generate an artificial data set. But the technique can easily be applied to any real-world datasets that are structured similarly.</p>
 <p>Let's generate a small dataset in two dimensions with five distinct clusters.</p>
 
 </div>
@@ -1421,7 +1421,7 @@ div.prompt {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="K-Means-Algorithm:-Expectation&#8211;Maximization">K-Means Algorithm: Expectation&#8211;Maximization<a class="anchor-link" href="#K-Means-Algorithm:-Expectation&#8211;Maximization">&#182;</a></h2><p>In a nutshell, the Expectation–Maximization algorithm involves the following iterative steps:</p>
+<h2 id="K-Means-Algorithm:-Expectation&#8211;Maximization">K-Means Algorithm: Expectation&#8211;Maximization<a class="anchor-link" href="#K-Means-Algorithm:-Expectation&#8211;Maximization">&#182;</a></h2><p>The Expectation–Maximization algorithm involves the following iterative steps:</p>
 <ul>
 <li>Initialize centroids randomly by choosing random instances of the dataset</li>
 <li>Repeat the following steps until convergence (until the centroids stop moving):<ul>
@@ -1538,22 +1538,21 @@ div.prompt {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Implementing-the-algorithm-from-scratch">Implementing the algorithm from scratch<a class="anchor-link" href="#Implementing-the-algorithm-from-scratch">&#182;</a></h2><p>Blablabla</p>
-<p>The k-means algorithm is simple enough to be implemented in a few lines:</p>
+<h2 id="Implementing-the-algorithm-from-scratch">Implementing the algorithm from scratch<a class="anchor-link" href="#Implementing-the-algorithm-from-scratch">&#182;</a></h2><p>The k-means algorithm is simple enough to be implemented in a few lines:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kmeans_from_scratch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k_clusters</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Implements the k-means algorithm from scratch&quot;&quot;&quot;</span>
 
     <span class="c1"># Randomly choose clusters from data points</span>
-    <span class="c1"># Create a random number generator by shuffling data points and selecting the n first data points</span>
+    <span class="c1"># Random number generator by shuffling data points and selecting the n first</span>
     <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[:</span><span class="n">k_clusters</span><span class="p">]</span>
     <span class="n">centers</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -1806,8 +1805,8 @@ div.prompt {
 <li>Elbow method</li>
 <li>Silhouette method</li>
 </ol>
-<h4 id="Elbow-Method">Elbow Method<a class="anchor-link" href="#Elbow-Method">&#182;</a></h4><p>We just saw while discussing initialization methods' importance a useful metric: inertia. Could we use this metric to select the right number of clusters?</p>
-<p>Let's calculate the inertia for clusters from 2 to 10 and compare them visually:</p>
+<h3 id="Elbow-Method">Elbow Method<a class="anchor-link" href="#Elbow-Method">&#182;</a></h3><p>We just saw while discussing initialization methods' importance a useful metric: inertia. Could we use this metric to select the right number of clusters?</p>
+<p>Let's calculate the inertia for clusters from 2 to 10 and compare them visually.</p>
 
 </div>
 </div>
@@ -1896,7 +1895,7 @@ div.prompt {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Silhouette-Method">Silhouette Method<a class="anchor-link" href="#Silhouette-Method">&#182;</a></h4><p>The average silhouette approach measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. The average silhouette method computes the average silhouette of observations for different values of k. The optimal number of clusters k is the one that maximizes the average silhouette over a range of possible values for k.</p>
+<h3 id="Silhouette-Method">Silhouette Method<a class="anchor-link" href="#Silhouette-Method">&#182;</a></h3><p>The average silhouette approach measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. The average silhouette method computes the average silhouette of observations for different values of k. The optimal number of clusters k is the one that maximizes the average silhouette over a range of possible values for k.</p>
 
 </div>
 </div>
@@ -2044,6 +2043,7 @@ div.prompt {
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>K-means clustering is a very simple and fast algorithm. Furthermore, it can efficiently deal with very large data sets. However, there are some weaknesses of the k-means approach.</p>
 <p>One potential disadvantage of K-means clustering is that it requires us to pre-specify the number of clusters. Hierarchical clustering is an alternative approach which does not require that we commit to a particular choice of clusters. Hierarchical clustering has an added advantage over K-means clustering in that it results in an attractive tree-based representation of the observations, called a dendrogram. A future tutorial will illustrate the hierarchical clustering approach.</p>
 <p>An additional disadvantage of K-means is that it’s sensitive to outliers and different results can occur if you change the ordering of your data.</p>
+<p>For a very intuitive and visual explanation, check out the excellent Statquest with his video on K-Means!</p>
 
 </div>
 </div>
@@ -2057,7 +2057,7 @@ div.prompt {
 </div>
  
 
-
+</body>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
