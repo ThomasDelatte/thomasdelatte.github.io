@@ -1118,6 +1118,9 @@ div.input_area {
 div.prompt.input_prompt {
     min-width: 0ex;
 }
+div.prompt {
+    min-width: 0ex;
+}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -2979,6 +2982,9 @@ div.input_area {
     overflow-x: auto;
 }
 div.prompt.input_prompt {
+    min-width: 0ex;
+}
+div.prompt {
     min-width: 0ex;
 }
 &lt;/style&gt;
@@ -5826,6 +5832,9 @@ div.input_area {
 div.prompt.input_prompt {
     min-width: 0ex;
 }
+div.prompt {
+    min-width: 0ex;
+}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -7582,6 +7591,9 @@ div.input_area {
     overflow-x: auto;
 }
 div.prompt.input_prompt {
+    min-width: 0ex;
+}
+div.prompt {
     min-width: 0ex;
 }
 &lt;/style&gt;
