@@ -3,8 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Thomas Delatte'
-SITENAME = "Thomas Delatte's blog"
-SITEURL = 'https://thomasdelatte.github.io'
+SITENAME = "Thomas Delatte"
+SITEURL = 'https://thomasdelatte.com'
 
 PATH = 'content'
 
@@ -27,7 +27,7 @@ INDEX_DESCRIPTION = 'Website and blog of Thomas Delatte, data scientist and lawy
 
 SIDEBAR_LINKS = [
     '<a href="/about/">About</a>',
-    '<a href="/archive/">Portfolio</a>'
+    '<a href="/portfolio/">Portfolio</a>'
 ]
 
 ICONS_PATH = 'images/icons'
@@ -35,7 +35,7 @@ ICONS_PATH = 'images/icons'
 SOCIAL_ICONS = [
     ('https://twitter.com/thomasdelatte', 'Twitter', 'fa-twitter'),
     ('https://github.com/ThomasDelatte', 'GitHub', 'fa-github'),
-    ('https://linkedin/in/thomasdelatte', 'LinkedIn', 'fa-linkedin')
+    ('https://www.linkedin.com/in/thomasdelatte', 'LinkedIn', 'fa-linkedin')
 ]
 
 THEME_COLOR = '#FF8000'
@@ -73,8 +73,8 @@ MARKDOWN = {
 }
 
 CACHE_CONTENT = False
-DELETE_OUTPUT_DIRECTORY = True
-OUTPUT_PATH = 'develop'
+DELETE_OUTPUT_DIRECTORY = False
+OUTPUT_PATH = 'output/'
 PATH = 'content'
 
 templates = ['404.html']
@@ -87,6 +87,9 @@ IGNORE_FILES = ['.DS_Store', 'pneumatic.scss', 'pygments.css', '.ipynb_checkpoin
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, 'extra/favicon.ico': {'path': 'favicon.ico'}}
 extras = ['CNAME', 'favicon.ico', 'robots.txt']
 IPYNB_USE_METACELL = True
+IPYNB_FIX_CSS = True
+# IPYNB_SKIP_CSS = False
+IPYNB_EXPORT_TEMPLATE = "notebook.tpl"
 
 MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['plugins', '/home/tdelatte/projects/pelican/plugins']
@@ -100,3 +103,5 @@ ASSET_CONFIG = [
 ]
 
 GOOGLE_ANALYTICS = 'UA-163901213-1'
+
+LOAD_CONTENT_CACHE = False
