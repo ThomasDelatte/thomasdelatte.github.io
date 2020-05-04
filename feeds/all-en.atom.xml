@@ -1143,8 +1143,13 @@ div.prompt.input_prompt {
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[18]:&lt;/div&gt;
 
-&lt;div class="collapseheader inner_cell"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
-&lt;div class="input_area"&gt;
+&lt;div class="collapseheader inner_cell" onclick="myFunction()"&gt;&lt;span style="font-weight: bold;"&gt;Expand Code&lt;/span&gt;
+&lt;script&gt;
+function myFunction() {
+  document.getElementById("panel").style.display = "block";
+}
+&lt;/script&gt;
+&lt;div class="input_area" style="display:none"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Data analysis&lt;/span&gt;
