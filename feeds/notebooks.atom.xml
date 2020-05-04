@@ -1110,68 +1110,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;style type="text/css"&gt;
-:root{
-    --in-time: .5s;
-    --out-time: .5s;
-    --max-height-small: 0px;
-    --max-height-big: 5000px;
-    --transition-path-out: cubic-bezier(0, 0.67, 0.36, 1);
-    --transition-path-in: ease-in-out;
-    --padding-hidden: 0px;
-}
-div.hidden_cell &gt; div.cell{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_output_cell  div.output_wrapper{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_input_cell  div.input{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hidden_cell, div.hide_output_cell, div.hide_input_cell{ display: flex; }
-input[type=checkbox]{ align-self:center; }
-input[type=checkbox].hide_cell:checked + div{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_output:checked  + div div.output_wrapper{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_input:checked  + div div.input{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-&lt;/style&gt;
-&lt;head&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -1199,9 +1138,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[1]:&lt;/div&gt;
@@ -1231,7 +1168,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1240,9 +1176,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
@@ -1265,7 +1199,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1273,9 +1206,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
@@ -1297,9 +1228,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
@@ -1335,7 +1263,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1343,9 +1270,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
@@ -1361,7 +1286,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1369,9 +1293,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
@@ -1409,7 +1331,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1439,9 +1360,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
@@ -1469,9 +1388,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[8]:&lt;/div&gt;
@@ -1542,7 +1458,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1551,9 +1466,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
@@ -1589,7 +1502,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1597,9 +1509,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
@@ -1637,7 +1547,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1654,9 +1563,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[11]:&lt;/div&gt;
@@ -1694,7 +1601,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1704,9 +1610,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[12]:&lt;/div&gt;
@@ -1741,7 +1645,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1759,9 +1662,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[13]:&lt;/div&gt;
@@ -1806,7 +1707,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1819,9 +1719,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[14]:&lt;/div&gt;
@@ -1835,7 +1733,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1843,9 +1740,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[15]:&lt;/div&gt;
@@ -1859,7 +1754,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1869,9 +1763,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[16]:&lt;/div&gt;
@@ -1886,9 +1778,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[17]:&lt;/div&gt;
@@ -1924,7 +1813,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3078,68 +2966,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;style type="text/css"&gt;
-:root{
-    --in-time: .5s;
-    --out-time: .5s;
-    --max-height-small: 0px;
-    --max-height-big: 5000px;
-    --transition-path-out: cubic-bezier(0, 0.67, 0.36, 1);
-    --transition-path-in: ease-in-out;
-    --padding-hidden: 0px;
-}
-div.hidden_cell &gt; div.cell{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_output_cell  div.output_wrapper{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_input_cell  div.input{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hidden_cell, div.hide_output_cell, div.hide_input_cell{ display: flex; }
-input[type=checkbox]{ align-self:center; }
-input[type=checkbox].hide_cell:checked + div{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_output:checked  + div div.output_wrapper{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_input:checked  + div div.input{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-&lt;/style&gt;
-&lt;head&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -3162,9 +2989,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
@@ -3215,16 +3040,13 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="1.-Data-Exploration"&gt;1. Data Exploration&lt;a class="anchor-link" href="#1.-Data-Exploration"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="1.1.-Import-the-data"&gt;1.1. Import the data&lt;a class="anchor-link" href="#1.1.-Import-the-data"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
@@ -3261,16 +3083,13 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="1.2.-Univariate-Analysis"&gt;1.2. Univariate Analysis&lt;a class="anchor-link" href="#1.2.-Univariate-Analysis"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
@@ -3390,9 +3209,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
@@ -3424,9 +3240,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
@@ -3473,9 +3286,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
@@ -3520,9 +3330,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[8]:&lt;/div&gt;
@@ -3565,7 +3372,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3581,9 +3387,7 @@ memory usage: 1.2 MB
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
@@ -3635,7 +3439,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3663,9 +3466,7 @@ memory usage: 1.2 MB
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
@@ -3682,9 +3483,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[11]:&lt;/div&gt;
@@ -3703,7 +3501,6 @@ memory usage: 1.2 MB
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3728,9 +3525,7 @@ memory usage: 1.2 MB
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[12]:&lt;/div&gt;
@@ -3785,7 +3580,6 @@ Recall:  1.0
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3798,9 +3592,7 @@ Recall:  1.0
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[13]:&lt;/div&gt;
@@ -3829,9 +3621,6 @@ Recall:  1.0
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[14]:&lt;/div&gt;
@@ -3846,7 +3635,6 @@ Recall:  1.0
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3868,9 +3656,7 @@ Recall:  1.0
 &lt;h4 id="Logistic-Regression"&gt;Logistic Regression&lt;a class="anchor-link" href="#Logistic-Regression"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[15]:&lt;/div&gt;
@@ -3940,16 +3726,13 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="K-Nearest-Neighbors"&gt;K-Nearest Neighbors&lt;a class="anchor-link" href="#K-Nearest-Neighbors"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[16]:&lt;/div&gt;
@@ -4019,16 +3802,13 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="Decision-Tree-Classifier"&gt;Decision Tree Classifier&lt;a class="anchor-link" href="#Decision-Tree-Classifier"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[16]:&lt;/div&gt;
@@ -4098,16 +3878,13 @@ weighted avg       0.97      0.97      0.97      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="Na&amp;#239;ve-Bayes"&gt;Na&amp;#239;ve Bayes&lt;a class="anchor-link" href="#Na&amp;#239;ve-Bayes"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[17]:&lt;/div&gt;
@@ -4177,16 +3954,13 @@ weighted avg       0.96      0.95      0.95      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h4 id="Support-Vector-Classifier"&gt;Support Vector Classifier&lt;a class="anchor-link" href="#Support-Vector-Classifier"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[18]:&lt;/div&gt;
@@ -4253,7 +4027,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4261,9 +4034,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[19]:&lt;/div&gt;
@@ -4304,9 +4075,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[20]:&lt;/div&gt;
@@ -4343,7 +4111,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4371,9 +4138,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[21]:&lt;/div&gt;
@@ -4443,7 +4208,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4452,9 +4216,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[26]:&lt;/div&gt;
@@ -4528,7 +4290,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4536,9 +4297,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[27]:&lt;/div&gt;
@@ -4615,7 +4374,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4623,9 +4381,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[28]:&lt;/div&gt;
@@ -4662,7 +4418,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4699,9 +4454,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4723,9 +4476,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4744,7 +4494,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4754,9 +4503,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4775,9 +4522,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4791,16 +4535,13 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="4.2.-Clustering-with-K-Means"&gt;4.2. Clustering with K-Means&lt;a class="anchor-link" href="#4.2.-Clustering-with-K-Means"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4820,9 +4561,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4853,7 +4591,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4869,9 +4606,7 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;h3 id="4.3.-K-Means-Clusters-for-Classification?"&gt;4.3. K-Means Clusters for Classification?&lt;a class="anchor-link" href="#4.3.-K-Means-Clusters-for-Classification?"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4895,7 +4630,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4903,9 +4637,7 @@ weighted avg       0.98      0.98      0.98      3580
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
@@ -4920,7 +4652,6 @@ weighted avg       0.98      0.98      0.98      3580
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6080,68 +5811,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;style type="text/css"&gt;
-:root{
-    --in-time: .5s;
-    --out-time: .5s;
-    --max-height-small: 0px;
-    --max-height-big: 5000px;
-    --transition-path-out: cubic-bezier(0, 0.67, 0.36, 1);
-    --transition-path-in: ease-in-out;
-    --padding-hidden: 0px;
-}
-div.hidden_cell &gt; div.cell{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_output_cell  div.output_wrapper{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_input_cell  div.input{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hidden_cell, div.hide_output_cell, div.hide_input_cell{ display: flex; }
-input[type=checkbox]{ align-self:center; }
-input[type=checkbox].hide_cell:checked + div{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_output:checked  + div div.output_wrapper{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_input:checked  + div div.input{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-&lt;/style&gt;
-&lt;head&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -6159,9 +5829,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
@@ -6184,9 +5852,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
@@ -6220,7 +5885,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6228,9 +5892,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
@@ -6247,9 +5909,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
@@ -6271,9 +5930,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
@@ -6317,16 +5973,13 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Preprocess-the-data"&gt;Preprocess the data&lt;a class="anchor-link" href="#Preprocess-the-data"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
@@ -6388,9 +6041,6 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[8]:&lt;/div&gt;
@@ -6424,16 +6074,13 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Visualize-the-data"&gt;Visualize the data&lt;a class="anchor-link" href="#Visualize-the-data"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
@@ -6476,7 +6123,6 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6492,9 +6138,7 @@ https://storage.googleapis.com/quickdraw_dataset/full/numpy_bitmap/whale.npy
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[22]:&lt;/div&gt;
@@ -6582,9 +6226,6 @@ None
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[23]:&lt;/div&gt;
@@ -6657,9 +6298,6 @@ Epoch 20/20
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[24]:&lt;/div&gt;
@@ -6697,9 +6335,6 @@ Epoch 20/20
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[25]:&lt;/div&gt;
@@ -6735,16 +6370,13 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Get-errors"&gt;Get errors&lt;a class="anchor-link" href="#Get-errors"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[73]:&lt;/div&gt;
@@ -6795,7 +6427,6 @@ After 20 epochs, the loss is 0.44952674834926926, and the accuracy is 0.86210417
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
  
 
 
@@ -7938,68 +7569,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;style type="text/css"&gt;
-:root{
-    --in-time: .5s;
-    --out-time: .5s;
-    --max-height-small: 0px;
-    --max-height-big: 5000px;
-    --transition-path-out: cubic-bezier(0, 0.67, 0.36, 1);
-    --transition-path-in: ease-in-out;
-    --padding-hidden: 0px;
-}
-div.hidden_cell &gt; div.cell{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_output_cell  div.output_wrapper{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hide_input_cell  div.input{
-    transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -webkit-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -moz-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    -o-transition: max-height var(--in-time) var(--transition-path-in), padding .0s step-end;
-    max-height: var(--max-height-big);
-}
-div.hidden_cell, div.hide_output_cell, div.hide_input_cell{ display: flex; }
-input[type=checkbox]{ align-self:center; }
-input[type=checkbox].hide_cell:checked + div{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_output:checked  + div div.output_wrapper{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-input[type=checkbox].hide_input:checked  + div div.input{
-    overflow:hidden;
-    max-height: var(--max-height-small);
-    transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -webkit-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -moz-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    -o-transition: max-height var(--out-time) var(--transition-path-out), padding var(--out-time) step-end;
-    padding: var(--padding-hidden);
-}
-&lt;/style&gt;
-&lt;head&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;head&gt;
 &lt;style&gt;
 div.input_area {
     overflow-x: auto;
@@ -8023,9 +7593,7 @@ div.prompt.input_prompt {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
@@ -8049,9 +7617,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
@@ -8085,9 +7650,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
@@ -8128,9 +7690,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[8]:&lt;/div&gt;
@@ -8149,9 +7708,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
@@ -8171,9 +7727,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
@@ -8190,9 +7743,6 @@ div.prompt.input_prompt {
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[11]:&lt;/div&gt;
@@ -8230,9 +7780,6 @@ X_test&amp;#39;s shape: (1783, 9216)
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[12]:&lt;/div&gt;
@@ -8274,9 +7821,6 @@ X_test&amp;#39;s shape: (1783, 9216)
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[10]:&lt;/div&gt;
@@ -8293,9 +7837,6 @@ X_test&amp;#39;s shape: (1783, 9216)
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[11]:&lt;/div&gt;
@@ -8384,9 +7925,6 @@ Final loss of validation data: 112.7545339281314
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[12]:&lt;/div&gt;
@@ -8622,9 +8160,6 @@ Final loss of validation data: 9.25821566358905
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[16]:&lt;/div&gt;
@@ -8661,9 +8196,6 @@ Final loss of validation data: 9.25821566358905
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;&lt;div class="hide_input_cell"&gt;
-    &lt;input class="hide_input" type="checkbox" checked&gt;&lt;/input&gt;
-        
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[17]:&lt;/div&gt;
@@ -8704,7 +8236,6 @@ Final loss of validation data: 9.25821566358905
 &lt;/div&gt;
 
 &lt;/div&gt;
-    &lt;/div&gt;
  
 
 
