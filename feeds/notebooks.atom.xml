@@ -1117,6 +1117,11 @@ div.input_area {
 }
 div.prompt.input_prompt {
     min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
 }
 div.prompt {
     min-width: 0ex;
@@ -2983,6 +2988,11 @@ div.input_area {
 }
 div.prompt.input_prompt {
     min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
 }
 div.prompt {
     min-width: 0ex;
@@ -5831,6 +5841,11 @@ div.input_area {
 }
 div.prompt.input_prompt {
     min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
 }
 div.prompt {
     min-width: 0ex;
@@ -7592,6 +7607,11 @@ div.input_area {
 }
 div.prompt.input_prompt {
     min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
 }
 div.prompt {
     min-width: 0ex;
