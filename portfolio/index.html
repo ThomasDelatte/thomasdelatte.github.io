@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>Portfolio | Thomas Delatte</title>
-	<meta name="description" content="">
+	<title>Data Science Portfolio | Thomas Delatte</title>
+	<meta name="description" content="A repository of the projects I worked on or am currently working on. Click on the projects' titles to see the full analysis and code. You can also check out the code on my Github profile. Stand-alone Projects GPT-2 EU text Generator …">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,8 +14,8 @@
 	<meta name="twitter:creator" content="@thomasdelatte">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
-	<meta property="og:title" content="Portfolio">
-	<meta property="og:description" content="">
+	<meta property="og:title" content="Data Science Portfolio">
+	<meta property="og:description" content="A repository of the projects I worked on or am currently working on. Click on the projects' titles to see the full analysis and code. You can also check out the code on my Github profile. Stand-alone Projects GPT-2 EU text Generator …">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://thomasdelatte.github.io/portfolio/">
@@ -64,9 +64,63 @@
 		</aside>
 
 		<article>
-	<h1 class="title"><a href="/portfolio/" title="Portfolio">Portfolio</a></h1>
+	<h1 class="title"><a href="/portfolio/" title="Data Science Portfolio">Data Science Portfolio</a></h1>
 	<div class="content">
-		
+		<p>A repository of the projects I worked on or am currently working on. Click on the projects' titles to see the full analysis and code.</p>
+<p>You can also check out the code on my <a href="https://github.com/ThomasDelatte">Github profile</a>.</p>
+<hr>
+<h2>Stand-alone Projects</h2>
+<h3><a href="https://github.com/thomasdelatte/gpt2-eu-acts">GPT-2 EU text Generator</a></h3>
+<ul>
+<li><a href="https://github.com/openai/gpt-2">The OpenAI GPT-2</a> uses a transformer-based language model to write impressively coherent and passionate essays. Using <a href="https://github.com/minimaxir/gpt-2-simple">GPT2-simple</a>, I fine-tuned the model on all <a href="https://github.com/iliaschalkidis/lmtc-eurlex57k"><strong>European Union's</strong> Directives, Regulations and Decisions</a> to get generated new EU legislative acts. </li>
+<li>I then put the model in a Docker container and depolyed it with Google Cloud Run.</li>
+<li>The generated texts are surpisingly coherent and can produce some quirky use of legalese.</li>
+<li>You can read more about the process and the results in my <a href="thomasdelatte.com/gpt2-eu-generator">article on my blog</a>.</li>
+<li>You can generate some text <a href="https://thomasdelatte.com/app">here</a>.</li>
+</ul>
+<hr>
+<h3><a href="https://github.com/thomasdelatte/baudelaire-poem-generator">Baudelaire Poem Generator</a></h3>
+<ul>
+<li>I scraped all 181 Baudelaire's poems from <a href="https://www.poesie-francaise.fr/poemes-charles-baudelaire/">poesie-francaise.fr</a> using BeautifulSoup.</li>
+<li>Inspired by the <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">famous Karpathy's article</a>, I used a charRNN model with Tensorflow 2 and Keras to generate Baudelaire-like poems.</li>
+</ul>
+<hr>
+<h3><a href="https://github.com/thomasdelatte/handwritten-text-recognizer">Handwritten text recognition</a></h3>
+<h2>* In development.</h2>
+<h2>Micro Projects</h2>
+<h3><a href="https://github.com/ThomasDelatte/Notebooks/blob/master/Clustering_with_K-Means.ipynb">Clustering with K-means</a></h3>
+<ul>
+<li>A visual introduction and  to the K-Means algorithm. </li>
+<li>For a more visually pleasing experience, you can find my article <a href="https://thomasdelatte.com/2020/04/kmeans/">here</a>.
+<img src="images/clustering.png" width="300"></li>
+</ul>
+<hr>
+<h3><a href="https://github.com/ThomasDelatte/Notebooks/blob/master/Pulsars_HTRU2.ipynb">Pulsars Detection with HTRU2 Dataset</a></h3>
+<ul>
+<li>The HTRU2 Pulsars dataset contains data about pulsars. I first use the dataset as a binary classification problem, and as an opportunity to try different classification algorithms and compare their performance.</li>
+<li>Then, I use the dataset for unsupervised learning tasks, namely by using a clustering method (K-Means) with PCA as a precursor step.
+<img src="images/pulsars.png" width="700"></li>
+</ul>
+<hr>
+<h3><a href="https://github.com/ThomasDelatte/Notebooks/blob/master/QuickDraw_Animals.ipynb">Animals from the QuickDraw Dataset</a></h3>
+<ul>
+<li>The QuickDraw dataset contains 50 millions of drawings collected by Google.</li>
+<li>I select 12 categories from the dataset (only animals) and train this dataset on a CNN.
+<img src="images/quickdraw.png" width="300"></li>
+</ul>
+<hr>
+<h3><a href="https://github.com/ThomasDelatte/Notebooks/blob/master/Facial_Keypoints_Recognition.ipynb">Facial Keypoints Detection (Kaggle)</a></h3>
+<ul>
+<li>The data comes from a Kaggle competition. </li>
+<li>I train a CNN to recognize 15 keypoints on faces.
+<img src="images/keypoints.png" width="300"></li>
+</ul>
+<hr>
+<h3><a href="https://github.com/ThomasDelatte/Notebooks/blob/master/House_Prices_Kaggle.ipynb">House Prices (Kaggle)</a></h3>
+<ul>
+<li>This Kaggle competition is a regression problem: we predict the price of houses based on more than 80 features (and many missing values). This gives us interesting possibilities for feature transformation and data visualization.</li>
+</ul>
+<hr>
 	</div>
 	<div id="back-to-home"><a href="/">&laquo; Back to Home</a></div>
 			<hr>
