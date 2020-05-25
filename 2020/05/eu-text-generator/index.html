@@ -1209,31 +1209,10 @@ div.prompt {
 </figure><p>To the best of my knowledge, GPT-2 has not been used to generate texts of a legal nature. It might seem odd indeed to want to generate legal texts when legal drafting requires more rigor and method than creativity.</p>
 <p>I believe nevertheless that it is an adequate way to see if the model stays consistent inside a generated text. On the other hand, legal document automation applications have been around for a long time and building a language model trained on legal documents is more and more used for natural language understanding and its applications.</p>
 <p>For our purpose, we will tap into the huge number of legal acts (Directives, Regulations, Decisions) produced in the last 30 years by the European Union. You can generate text yourself right away <a href="https://thomasdelatte.com/app">here</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Using-the-GPT2-model-on-EU-Acts">Using the GPT2 model on EU Acts<a class="anchor-link" href="#Using-the-GPT2-model-on-EU-Acts">&#182;</a></h3><p>You can find and run a more exhaustive version of the code used in my <a href="https://colab.research.google.com/drive/1QP-pInYzeYAP2IHJX1JhaPqY062Jd122?usp=sharing">Colab notebook</a>.</p>
 <p>We will use the <a href="https://github.com/minimaxir/gpt-2-simple">gpt-2-simple</a> library to conveniently play around with GPT-2.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Get-the-data">Get the data<a class="anchor-link" href="#Get-the-data">&#182;</a></h3><p>To train the GPT2 model to generate EU legislative acts, we obviously need to get existing EU acts.</p>
 <p>Luckily, we will not need to scrape the data from the web: EURLEX57K is a database consisting of the 57,000 European Union's Directives, Decisions and Regulations from 1990 to 2019. It is available <a href="https://github.com/iliaschalkidis/lmtc-eurlex57k">here</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>The EU legislative acts were loaded each in a separate JSON file, which amounts to no less than 57,000 files in our dataset! Let's glob them together for further processing.</p>
 <p>We also load the files in Pandas dataframes. As the number of files to load is important (57,000!), this might take a few minutes.</p>
 
@@ -1422,7 +1401,8 @@ Wall time: 4min 26s
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop unnecessary columns</span>
-<span class="n">small_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;celex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;concepts&quot;</span><span class="p">,</span> <span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;recitals&quot;</span><span class="p">,</span> <span class="s2">&quot;attachments&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">small_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;celex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;concepts&quot;</span><span class="p">,</span> <span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;recitals&quot;</span><span class="p">,</span> <span class="s2">&quot;attachments&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Main_body column from list to string</span>
 <span class="n">small_data</span><span class="p">[</span><span class="s2">&quot;main_body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">small_data</span><span class="p">[</span><span class="s2">&quot;main_body&quot;</span><span class="p">]]</span>
 </pre></div>
@@ -1530,7 +1510,9 @@ Wall time: 4min 26s
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save to text file</span>
 <span class="c1"># line_terminator uses tags to delimit the start and end of texts</span>
-<span class="n">small_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;eu_2.txt&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">line_terminator</span><span class="o">=</span><span class="s2">&quot;&lt;endoftext&gt; </span><span class="se">\n</span><span class="s2"> &lt;startoftext&gt;&quot;</span><span class="p">)</span>
+<span class="n">small_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s2">&quot;eu_2.txt&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+    <span class="n">line_terminator</span><span class="o">=</span><span class="s2">&quot;&lt;endoftext&gt; </span><span class="se">\n</span><span class="s2"> &lt;startoftext&gt;&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
