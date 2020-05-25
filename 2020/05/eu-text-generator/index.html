@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Generating EU legislation with GPT-2 | Thomas Delatte</title>
+	<meta name="description" content="Tutorial for generating EU legislative acts with OpenAI's GPT2. With just a few lines of code, I prepare the data, fine-tune a GPT-2 model and generate brand new content.">
+	<meta name="author" content="Thomas Delatte">
+	<link rel="author" href=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@thomasdelatte">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@thomasdelatte">
+	<meta property="og:title" content="Generating EU legislation with GPT-2">
+	<meta property="og:description" content="Tutorial for generating EU legislative acts with OpenAI's GPT2. With just a few lines of code, I prepare the data, fine-tune a GPT-2 model and generate brand new content.">
+	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://thomasdelatte.github.io/2020/05/eu-text-generator/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32">
+	<meta name="theme-color" content="#FF8000">
+
+	<meta name="msapplication-TileColor" content="#FF8000">
+	<meta name="msapplication-TileImage" content="/images/icons/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="/images/icons/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="/images/icons/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="/images/icons/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="/images/icons/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside>
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/images/icons/avatar.png"></a>
+			<div id="name"><a href="/">Thomas Delatte</a></div>
+			<div id="bio"></div>
+
+			<div id="sidebar-links">
+				<a href="/about/">About</a>&nbsp;|&nbsp;<a href="/portfolio/">Portfolio</a>
+			</div>
+
+			<div id="social">
+				<a href="https://twitter.com/thomasdelatte" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="https://github.com/ThomasDelatte" title="GitHub" class="icon fa fa-github"></a>
+				<a href="https://www.linkedin.com/in/thomasdelatte" title="LinkedIn" class="icon fa fa-linkedin"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article>
+	<h1 class="title"><a href="/2020/05/eu-text-generator/" title="Permalink to Generating EU legislation with GPT-2">Generating EU legislation with GPT-2</a></h1>
+	<time class="date" datetime="2020-05-25 00:00:00+02:00">May 25, 2020</time>
+	<div class="content">
+		<style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><head>
+<style>
+div.input_area {
+    overflow-x: auto;
+}
+div.prompt.input_prompt {
+    min-width: 0ex;
+    display: none;
+}
+div.prompt.output_prompt {
+    min-width: 0ex;
+    display: none;
+}
+div.prompt {
+    min-width: 0ex;
+}
+</style>
+</head>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Natural language generation is the process of producing meaningful phrases and sentences in the form of natural language. Since a couple of years, natural language processing (NLP) models show a stunning ability to write coherent pieces and go beyond what we thought was possible in the short-term. <a href="https://github.com/openai/gpt-2">The OpenAI GPT-2</a> is a model that stunned the world in 2019 by automatically creating consistent and passionate stories.</p>
+<p>The GPT-2 isn’t based on a notably innovative architecture: it is similar to the already-seen decoder-only transformer. This is rather the scale of the model and the scale of the data it feeds on that set its performances apart.</p>
+<p>The GPT-2 is a pre-trained language model, meaning that it is trained to predict the next word of a sentence. Since its release, the GPT-2 has been fine-tuned on various datasets for various language generation tasks, ranging from a <a href="https://talktotransformer.com">chatbot completing any sentence you give it</a> to a <a href="https://www.thisworddoesnotexist.com/">generator of words that do not exist, and their definition</a>.</p>
+<p>For an illustrated and accessible explanation of how GPT-2 works, check out <a href="http://jalammar.github.io/illustrated-gpt2/">this amazing blog post by Jay Alammar!</a>.</p>
+<figure class="image">
+  <img src="https://miro.medium.com/max/1400/1*MqyjtyN3EYRQ4WVmUm1z2Q.gif" alt="openAI Gif">
+  <figcaption>Credit: Ben Barry / OpenAI</figcaption>
+</figure><p>To the best of my knowledge, GPT-2 has not been used to generate texts of a legal nature. It might seem odd indeed to want to generate legal texts when legal drafting requires more rigor and method than creativity.</p>
+<p>I believe nevertheless that it is an adequate way to see if the model stays consistent inside a generated text. On the other hand, legal document automation applications have been around for a long time and building a language model trained on legal documents is more and more used for natural language understanding and its applications.</p>
+<p>For our purpose, we will tap into the huge number of legal acts (Directives, Regulations, Decisions) produced in the last 30 years by the European Union. You can generate text yourself right away <a href="https://thomasdelatte.com/app">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Using-the-GPT2-model-on-EU-Acts">Using the GPT2 model on EU Acts<a class="anchor-link" href="#Using-the-GPT2-model-on-EU-Acts">&#182;</a></h3><p>You can find and run a more exhaustive version of the code used in my <a href="https://colab.research.google.com/drive/1QP-pInYzeYAP2IHJX1JhaPqY062Jd122?usp=sharing">Colab notebook</a>.</p>
+<p>We will use the <a href="https://github.com/minimaxir/gpt-2-simple">gpt-2-simple</a> library to conveniently play around with GPT-2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-the-data">Get the data<a class="anchor-link" href="#Get-the-data">&#182;</a></h3><p>To train the GPT2 model to generate EU legislative acts, we obviously need to get existing EU acts.</p>
+<p>Luckily, we will not need to scrape the data from the web: EURLEX57K is a database consisting of the 57,000 European Union's Directives, Decisions and Regulations from 1990 to 2019. It is available <a href="https://github.com/iliaschalkidis/lmtc-eurlex57k">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The EU legislative acts were loaded each in a separate JSON file, which amounts to no less than 57,000 files in our dataset! Let's glob them together for further processing.</p>
+<p>We also load the files in Pandas dataframes. As the number of files to load is important (57,000!), this might take a few minutes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Glob the files together</span>
+<span class="n">folders</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;/content/EURLEX57K/dataset/**/*.json&quot;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Load the files in a Pandas Dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 4min 22s, sys: 3.95 s, total: 4min 26s
+Wall time: 4min 26s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's take a glimpse at the data:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>celex_id</th>
+      <th>uri</th>
+      <th>type</th>
+      <th>concepts</th>
+      <th>title</th>
+      <th>header</th>
+      <th>recitals</th>
+      <th>main_body</th>
+      <th>attachments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32003R1781</td>
+      <td>http://publications.europa.eu/resource/cellar/...</td>
+      <td>Regulation</td>
+      <td>[252, 2668]</td>
+      <td>Commission Regulation (EC) No 1781/2003 of 10 ...</td>
+      <td>Commission Regulation (EC) No 1781/2003\nof 10...</td>
+      <td>,\nHaving regard to the Treaty establishing th...</td>
+      <td>[The world price for unginned cotton as referr...</td>
+      <td>Done at Brussels, 10 October 2003.\nFor the Co...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>32013D0092</td>
+      <td>http://publications.europa.eu/resource/cellar/...</td>
+      <td>Decision</td>
+      <td>[191, 2746, 2754, 2771, 3191, 4079, 4509, 5969]</td>
+      <td>2013/92/EU: Commission Implementing Decision o...</td>
+      <td>20.2.2013 EN Official Journal of the European ...</td>
+      <td>,\nHaving regard to the Treaty on the Function...</td>
+      <td>[Definitions\nFor the purpose of this decision...</td>
+      <td>Done at Brussels, 18 February 2013.\nFor the C...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>31990R1317</td>
+      <td>http://publications.europa.eu/resource/cellar/...</td>
+      <td>Regulation</td>
+      <td>[2676, 4472, 6042]</td>
+      <td>Council Regulation (EEC) No 1317/90 of 14 May ...</td>
+      <td>COUNCIL  REGULATION (EEC) N° 1317/90\nof 14 Ma...</td>
+      <td>,\nHaving regard to the Treaty establishing th...</td>
+      <td>[For the 1990/91 marketing year, the  target p...</td>
+      <td>Done at Brussels, 14 May 1990.\nFor the Counci...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>32009R0755</td>
+      <td>http://publications.europa.eu/resource/cellar/...</td>
+      <td>Regulation</td>
+      <td>[1118, 1605, 2443, 2635, 693]</td>
+      <td>Commission Regulation (EC) No 755/2009 of 18 A...</td>
+      <td>19.8.2009 EN Official Journal of the European ...</td>
+      <td>,\nHaving regard to the Treaty establishing th...</td>
+      <td>[The standard import values referred to in Art...</td>
+      <td>Done at Brussels, 18 August 2009.\nFor the Com...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>31991R0591</td>
+      <td>http://publications.europa.eu/resource/cellar/...</td>
+      <td>Regulation</td>
+      <td>[2984, 3605, 693]</td>
+      <td>Commission Regulation (EEC) No 591/91 of 12 Ma...</td>
+      <td>COMMISSION REGULATION (EEC) No 591/91  of 12 M...</td>
+      <td>,\nHaving regard to the Treaty establishing th...</td>
+      <td>[1. In order to establish the register of citr...</td>
+      <td>Done at Brussels, 12 March 1991.\nFor the Comm...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Legislative acts are usually cluttered with a lot of legalese that is difficult to understand for non-lawyers. Let's get rid of it and keep only the title of the legislative act and its body.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop unnecessary columns</span>
+<span class="n">small_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;celex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;concepts&quot;</span><span class="p">,</span> <span class="s2">&quot;header&quot;</span><span class="p">,</span> <span class="s2">&quot;recitals&quot;</span><span class="p">,</span> <span class="s2">&quot;attachments&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Main_body column from list to string</span>
+<span class="n">small_data</span><span class="p">[</span><span class="s2">&quot;main_body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">small_data</span><span class="p">[</span><span class="s2">&quot;main_body&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A peek at the data</span>
+<span class="n">small_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>main_body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Commission Regulation (EC) No 1781/2003 of 10 ...</td>
+      <td>The world price for unginned cotton as referre...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2013/92/EU: Commission Implementing Decision o...</td>
+      <td>Definitions\nFor the purpose of this decision,...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Council Regulation (EEC) No 1317/90 of 14 May ...</td>
+      <td>For the 1990/91 marketing year, the  target pr...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Commission Regulation (EC) No 755/2009 of 18 A...</td>
+      <td>The standard import values referred to in Arti...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Commission Regulation (EEC) No 591/91 of 12 Ma...</td>
+      <td>1. In order to establish the register of citru...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, the gpt2-simple module requires a text file as input. We add the tags "startoftext" and "endoftext" before and after each legislative act that the model will later pick up to learn where each text starts and ends.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save to text file</span>
+<span class="c1"># line_terminator uses tags to delimit the start and end of texts</span>
+<span class="n">small_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;eu_2.txt&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">line_terminator</span><span class="o">=</span><span class="s2">&quot;&lt;endoftext&gt; </span><span class="se">\n</span><span class="s2"> &lt;startoftext&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Training-the-Model">Training the Model<a class="anchor-link" href="#Training-the-Model">&#182;</a></h3><p>Open AI has released 4 different models, each more complex than the last: 124M parameters, 355M parameters, 762M parameters and finally a gigantic 1.5 Billion (!) parameters model.</p>
+<p>For our purposes we will be downloading the smallest model with 124M parameters.</p>
+<p>Our job is to fine-tune the model. This means that we keep the weights of the already-trained neural network and that we only make small adjustments to these weights to complete our task. This finetuning process is usually used to speed up training (given the size of the neural network model) and sometimes to overcome a small dataset size (which is not really our case here).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gpt2</span><span class="o">.</span><span class="n">download_gpt2</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;124M&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Fetching checkpoint: 1.05Mit [00:00, 525Mit/s]                                                      
+Fetching encoder.json: 1.05Mit [00:00, 108Mit/s]                                                    
+Fetching hparams.json: 1.05Mit [00:00, 432Mit/s]                                                    
+Fetching model.ckpt.data-00000-of-00001: 498Mit [00:02, 228Mit/s]                                   
+Fetching model.ckpt.index: 1.05Mit [00:00, 646Mit/s]                                                
+Fetching model.ckpt.meta: 1.05Mit [00:00, 148Mit/s]                                                 
+Fetching vocab.bpe: 1.05Mit [00:00, 191Mit/s]                                                       
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's start the session and train our model. The API of the GPT2-simple module makes it very easy.</p>
+<p>Given the number of parameters and the size of our data, this is going to take a while: using Colab's GPU is essential.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sess</span> <span class="o">=</span> <span class="n">gpt2</span><span class="o">.</span><span class="n">start_tf_sess</span><span class="p">()</span>
+
+<span class="n">gpt2</span><span class="o">.</span><span class="n">finetune</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span>
+              <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;eu_data.txt&quot;</span><span class="p">,</span>
+              <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;124M&#39;</span><span class="p">,</span>
+              <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+              <span class="n">restore_from</span><span class="o">=</span><span class="s1">&#39;fresh&#39;</span><span class="p">,</span>
+              <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;run1&#39;</span><span class="p">,</span>
+              <span class="n">print_every</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+              <span class="n">sample_every</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+              <span class="n">save_every</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/gpt_2_simple/src/sample.py:17: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+Loading checkpoint models/124M/model.ckpt
+INFO:tensorflow:Restoring parameters from models/124M/model.ckpt
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  0%|          | 0/1 [00:00&lt;?, ?it/s]</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loading dataset...
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 1/1 [01:24&lt;00:00, 84.78s/it]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>dataset has 17477821 tokens
+Training...
+[10 | 19.57] loss=2.50 avg=2.50
+[20 | 32.13] loss=1.79 avg=2.14
+[30 | 44.66] loss=2.00 avg=2.10
+[40 | 57.19] loss=2.35 avg=2.16
+[50 | 69.74] loss=1.82 avg=2.09
+[60 | 82.30] loss=1.80 avg=2.04
+[70 | 94.81] loss=1.48 avg=1.96
+[80 | 107.36] loss=1.72 avg=1.93
+[90 | 119.88] loss=1.72 avg=1.90
+[100 | 132.45] loss=1.97 avg=1.91
+======== SAMPLE 1 ========
+ Regulation Regulation (EC) No 1727/93 laying down detailed rules for the use of ECAG (ecagium.org)  (5) shall be amended as follows:
+1. The introductory paragraph shall be deleted.
+2. In the second paragraph the following paragraphs shall be added: `not later than 1 January 1994, the European Parliament may apply new rules for the application of the same rules that have been adopted during the period referred to in the first subparagraph:
+(a) the Regulation,
+(b) the Commission Regulation (EC) No 1727/93, and
+(c) this Regulation&#39;.
+This Regulation shall enter into force on the third day following its publication in the Official Journal of the European Communities.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 1540/98 of 27 September 1998 amending Regulation (EEC) No 3280/92 laying down transitional arrangements for the granting and administration of certain anti-dumping duties in the milk sector
+&#34; &#34;Regulation (EC) No 3280/92 is hereby amended as follows:
+1. in Articles 1 and 2, Article 1 is replaced by the following:
+&#39;Article 1
+1. Provisions for the implementation of a transitional arrangement
+1. The following provisional transitional arrangements shall be laid down:    Article 1
+A transitional period may be laid down for:     0-0-1999 and, in particular, Article 23 of the        23 94
+(1), (2), (3), (4) and (5), (6) and (8), (1), (2) and (3), (9), (3),  (4) and (5), (6) and (7), (8) and (9). This transitional period shall take effect on the date of entry into force of this Regulation.
+However, the transitional period may be extended for any one of the following reasons:   (a) if there has been a breach of the transitional obligation to be carried out under Article 5, (b) if the importers in question have not complied with the transitional obligations to     (a) in Article 6, (b) by virtue of Articles 12 and 28 of Directive 92/92/EC, (b) by virtue of the Commission&#39;s own rule, (c) when Member States have invoked the transitional obligations conferred by Council Regulation (EEC) No 3913/78.
+2. In Article 32 of this Regulation the following Annex is added to Article 29: &#34;&#34;Article 31
+Each of the following shall apply to import licences issued under this Regulation:    (a) for dairy products under 12.5 tonnes gross volume to be processed or labelled or to be exported as milk under Part II or Part III,
+(b) for other product under the rules of Part 5, (c) for      (e) for other milk products,
+(f) for nonalcoholic drinks sold by other means,
+(g) for products covered by the same restrictive provisions for milk for which the Commission has adopted a transitional plan. 1. The Commission shall communicate to Member States the main provisions of this Regulation, and if necessary the text of the main provisions, in the Official Journal of the European Communities.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;2004/957/EC: Commission Decision of 26 September 2004 amending Decision 2006/85/EC in respect of the Member States&#39; approval of the financial assistance in respect of the supply to the European Central Bank of the quantities of maize and maize-based cereals
+&#34; &#34;The financial assistance granted pursuant to Article 6.2 (2) is hereby replaced by the Annex to this Decision. This Decision shall enter into force on 27 October 2004. This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 913/2001 of 17 June 2001 opening an inspection authority to inspect the quantities of maize and maize-based cereals supplied from the United Kingdom to the European Agricultural Guarantee, Export Regulating Authority.
+&#34; &#34;An inspection authority shall be empowered to inspect, and if necessary, to ensure that the quantities supplied are of non-toxic and non-toxic-like qualities and contain residues of certain products including cadmium and cadmium-131 or a metal with a potential to affect the quality of the quality of the products concerned. The inspection authority shall:
+(a) ensure that the residue of product is not removed before being tested and to ensure that the product contains no residue and with the exception of those substances described in Article 32;
+(b) ensure that if a member of the inspection authority possesses no information on product residue or traces of residue on the product, and the
+
+[110 | 155.50] loss=1.54 avg=1.87
+[120 | 168.03] loss=1.79 avg=1.87
+[130 | 180.59] loss=1.81 avg=1.86
+[140 | 193.14] loss=1.80 avg=1.86
+[150 | 205.67] loss=1.65 avg=1.84
+[160 | 218.21] loss=1.87 avg=1.84
+[170 | 230.73] loss=1.90 avg=1.85
+[180 | 243.25] loss=1.90 avg=1.85
+[190 | 255.77] loss=1.79 avg=1.85
+[200 | 268.30] loss=1.92 avg=1.85
+======== SAMPLE 1 ========
+ Journal (No 82962/92), the European Union Community, the European Union of Finland and the Russian Federation and certain other third countries, shall amend and/or amend the following additional information provisions in light of Articles 2 and 5 of this Regulation (ECSC/97/76):
+(a) the following additional information provisions shall be added:
+&#34;&#34;2. The European Community shall be the representative agency for the European Community in the field of agricultural products. In order to do this, the national agriculture authorities shall bring the Commission&#39;s special request into existence in accordance with Article 2(3).&#34;.&#34;&#34;&#34;
+(b) the following additional information provisions shall be added: &#34;&#34;The Council of Europe shall be the representative agency in the field of agriculture  products, which shall be held as its representative agency in the field of agriculture products.&#34;.&#34;&#34;&#34;&#34;
+(c) the following additional information provisions shall be added: &#34;&#34;The European Commission shall be the representative agency in the field of agricultural products, which shall be held as its representative agency in the field of agriculture products.&#34;&#34;
+(d) the provision for the provision for the intervention of products under section III of Commission Decision No 2566/89/CE (ECSC/9/76) in respect of  poultry meat products shall also be replaced by the prohibition that follows in Part IV. 1. The following additional information provisions shall be added: &#34;&#34;The United Kingdom shall be the representative agency for the United Kingdom in the field of agricultural products and shall be represented at the United Kingdom Commission of Agriculture offices. In order to do this, the United Republic will have to carry out a special request by the United Kingdom Commission of Agriculture Office. The United Kingdom Commission of Agriculture Office for the first 25 days shall notify the Commission of the provisions with regard to this obligation. The United Kingdom Commission of Agriculture Office for the second 25 days shall inform the United Republic of the provisions with respect to this obligation.&#34;. This Decision is addressed to the United Kingdom Commission.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;90/843/EEC: Commission Decision of 22 June 1990 amending the detailed rules for the implementation of the Community rules governing the importation of maize and maize starch in certain third countries (Only the French and Dutch exiles and the Belgian and Danish exiles are permitted to submit such entries)
+&#34; &#34;The basic rules for importing maize starch which, in the case of Italy, Belgium, France, Germany, Denmark, Austria-Hungary, Italy, Austria-Hungary, Belgium, Greece, Finland, Spain or Sweden are listed in the Annex hereto shall be amended in accordance with these rules. 1. In order for the importation of maize starch to be eligible for refund as referred to in Article 15 of the Annex, it shall be subject to a number of conditions and conditions which it has to fulfil.
+The quantity of the starch that the authorities must ensure to be added to the list above by 1 July must be of an average product quality equal to or exceeding the quality of maize starch imported from Italy.
+2. To this end all maize is subject to the production limit referred to in the second paragraph of Article 2(1).
+The quantities of maize starch that are not to be added, or to some extent removed, to the list mentioned in last paragraph, are to be imported only if they are equivalent and, as a result, their quantities and their export refunds or import refunds shall be taken into consideration in favour of the Commission. The Commission shall be informed of the quantities to be imported at any time (hereinafter referred to as &#34;the export statement&#34;):
+— not less than 85 % of the imports exported in 1990, but not exceeding 85 % of the export refund and refunds.
+— if the maize starch is in a single batch, the export refund and/or the refund and/or the transfer to be granted to the person on whose account the import is to be processed, subject to the provisions of Article 8(1) of the Regulation and Article 3 of the Regulations, of the minimum quality standards for maize starch, the quality of malt, the quality and/or the quality of the product to which an import or export authorization has been issued for that batch.
+— any additional importation costs that may result from the sale or the removal of the product resulting from such sale or removal of the product resulting from the sale or removal of the product; or
+— any other additional expenses related to the import, removal or removal of the product, such as the duty on the quantities exported if the product has not been exported yet.
+After such extra costs the Commission shall give the competent authorities the following description of the products to be imported. 1. The import licences shall be issued to persons importing maize starch in respect of the preceding production year.
+2. The person or persons importing maize starch in respect of the last production year must ensure that the quantities of maize starch exported during this production year are covered by the export licence in respect of that production year.
+3
+
+[210 | 291.12] loss=1.81 avg=1.85
+[220 | 303.65] loss=1.57 avg=1.84
+[230 | 316.19] loss=1.90 avg=1.84
+[240 | 328.73] loss=1.51 avg=1.82
+[250 | 341.27] loss=2.03 avg=1.83
+[260 | 353.81] loss=1.32 avg=1.81
+[270 | 366.36] loss=1.54 avg=1.80
+[280 | 378.95] loss=1.53 avg=1.79
+[290 | 391.49] loss=2.00 avg=1.80
+[300 | 404.03] loss=1.70 avg=1.79
+======== SAMPLE 1 ========
+ sell its products in respect of a period between 1 December 2004 and 30 December 2014. The measures required by Regulation (EC) No 1566/98 shall take account of the new information provided on the basis of which a definitive report and evaluation of the methods, techniques and technical solutions are submitted. For consistency with the Community&#39;s position, it is agreed that the Commission shall not accept as an invitation to tender any quantity as referred to in Article 3(1). This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EU) No 1241/2014 of 28 July 2014 amending Regulation (EU) No 638/2014 adopting a system of import licences for processed cane sugar in the sugar sector, as referred to in Article 10(4) of Council Regulation (EU) No 1868/2010
+&#34; &#34;The Annex to Regulation (EU) No 638/2014 is replaced by the Annex hereto. This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;93/891/EEC: Commission Decision of 17 March 1993 amending Decision 93/542/EEC as regards export licences for certain products subject to quarantine (Only the French text is authentic) (Text with EEA relevance)
+&#34; &#34;The Annex to Directive 91/493/EEC is replaced by the Annexes to this Decision. This Decision shall apply from 1 April 1993. This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EEC) No 2159/84 of 5 December 1984 determining the quantity and quality of butter for distillation in Portugal (Volumes 3-17, No 3.1-4), Portugal (Volumes 18) and France (Volumes 4-17)
+&#34; &#34;1. The quantity, in respect of the products covered by the group ‘Products covered under the group ‘Preliminary measures for distillation in Portugal and the Portuguese Republic’ of 15 October 1985’ and containing at least a percentage of concentrated butter of that type, shall be fixed in the list of the groups set out in the Commission&#39;s Decks.
+2. The Member States shall bring into force the Decks, in order of their implementation, the measures implementing the Decks, before 11 a.m. on 24 July 1984, at the latest. This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Communities.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Council Decision of 25 November 2001 on European Structural Funds&#39; request to amend certain provisions of the Financial Agreement in support of financial innovation at the European level
+&#34; &#34;Member States should amend the terms of their respective annual appropriations for European Structural Funds&#39; support. This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;87/642/EEC: Commission Decision of 25 April 1987 on the review of the provisions in Protocol 2 (of the Advisory Committee for Structural Funds) adopted by Commission Decision 94/534/EEC concerning the maintenance of financial stability on a macro-economic basis (Only the Italian text is authentic)
+&#34; &#34;The Commission&#39;s review of the provisions in Protocol 2 (of the Advisory Committee for Structural Funds) adopted by Commission Decision 94/534/EEC is hereby approved on behalf of the Commission. This Decision shall be published in the Official Journal of the European Communities.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 1719/2008 of 2 June 2008 imposing detailed restrictive measures in relation to imports of certain pigmeat originating in the countries of Australia, New Zealand and Northern Ireland
+&#34; &#34;1. On the basis of the information provided by the importing Member State and under Section B and C of Commission Regulation (EC) No 2452/2007, imports into the Member State of each of the following categories of pigmeat originating in the Member State of Australia, New Zealand and New Zealand, from third countries (in the form of pigmeat in which the certificate is issued) shall be restricted to:
+(a) the processing of pigmeat in the form of fresh, chilled, dried or rolled up pigmeat mixed with flax or other dried pigmeat, obtained by placing the pigmeat in plastic bags or containers,
+(b) the handling and consumption of pigmeat in a non-metallic container;
+(c) the processing of pigmeat in the form of the pigmeat, chilled, dried, or rolled up, in the case of processing of pork and boned meat of any type, to a processing facility and that it is to
+
+[310 | 426.48] loss=1.21 avg=1.77
+[320 | 439.03] loss=1.59 avg=1.76
+[330 | 451.58] loss=1.62 avg=1.76
+[340 | 464.14] loss=1.40 avg=1.75
+[350 | 476.66] loss=1.55 avg=1.74
+[360 | 489.21] loss=1.61 avg=1.74
+[370 | 501.74] loss=1.72 avg=1.74
+[380 | 514.30] loss=1.44 avg=1.73
+[390 | 526.87] loss=1.43 avg=1.72
+[400 | 539.40] loss=1.57 avg=1.71
+======== SAMPLE 1 ========
+ vanalage. That requirement shall apply to the final tariff quota allocated to the national tariff quota, and to the quantities set out therein, where the available balance of a quota is less or equal to 75 % of the total quota available. In order to comply with this Regulation the Commission, on the basis of the information given in Annex IV, must give the final market price of certain goods added to the single quota. For the purposes of applying this Regulation, the term &#39;final market price&#39; shall mean the available maximum security for the goods in question. Where goods are put under the tariff quota for the period covered by this Regulation, they are labelled &#39;not used or used not offered&#39;, and the intervention agencies are required to notify the Commission of the quantity and volume in which these goods were put under that quota in the preceding month. However, the period shall be staggered once a year under the system of tariff quotas. This Regulation shall enter into force on the fifth day following its publication in the Official Journal of the European Communities.
+It shall apply from 1 January 1997.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;2008/943/EC: Commission Decision of 16 January 2008 accepting the tenders submitted from 23 February 2008 and rejecting the applications submitted from 14 February 2008
+&#34; &#34;The tenders submitted pursuant to Decision 2007/945/EC are hereby rejected.
+The tenders submitted pursuant to Decision 2008/945/EC are hereby accepted. As a result of the latter decision the Commission shall not take any action in connection with the tenders applications. The tenders shall be weighted in accordance with Article 20 of Decision 2009/619/EC.
+The tenders shall be weighted in the order of greatest share in accordance with Article 16 of Decision 2009/620/EC. By way of derogation from Article 12 of Decision 2008/945/EC and pursuant to Article 14 (1) of Decision 2010/12/EC, for which the time limit for the submission of the tendering application has expired on 30 February 2008, the tendered quantities shall be multiplied by the quantity requested per tenderer to the maximum specified. This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Decision 2008/867/BBG No 3063/08 of 9 January 2008 amending/fixing the quantities of dried figs allowed under the conditions of intervention for 2007
+&#34; &#34;The Annex to Decision 2008/867/BBG No 3063/08 contains the following entry:
+2. (1) Grafting products which must be bought or sold under the &#39;invented and marketed&#39; policy may include dried figs, figs intended only for commercial uses at the origin, originating from third countries and which do not carry any import charge. However, the quantity of dried figs permitted under the &#39;invented and marketed&#39; policy may not exceed the quantity allowed by this Decision. Any quantity of dried figs available for which Article 29 of Directive 2011/87/EC is in force shall be regarded as being below the quantity allowed by Article 31 of Directive 2010/23/EC and shall be replaced by the quantity required or greater in any case when available. The quantity of dried figs available for which Article 29 of Directive 2011/87/EC is in force shall be regarded as being below the quantity allowed by Article 31 of Directive 2010/23/EC and shall be replaced by the quantity required or greater at the latest within the time-limit referred to in Article 28 of that Directive.
+Article 27 of Directive 2010/23/EC shall be replaced by Annex to this Decision. This Decision is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EEC) No 1048/86 of 26 April 1986 amending and supplementing Regulation (EEC) No 2047/86 as regards the quantities of skimmed milk and skimmed-milk powder referred to in Annex I to Council Regulation (EEC) No 2183/83 on the common organization of the market in cereals (Text with EEA relevance)
+&#34; &#34;In Article 1 of Annex I to Regulation (EEC) No 2183/83, &#39;1 November 1986` is replaced by &#39;15 November 1985&#39;&#39;. This Regulation shall enter into force on the fourth day following its publication in the Official Journal of the European Communities.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Implementing Regulation (EU) No 1513/2012 of 3 February 2012 amending Annex 6 of Regulation (EC) No 2345/2004 re-establishing certain restrictive measures against the Central African Republic under the auspices of UNSCM under Chapter VI of the Convention on the Rights of the Child
+&#34; &#34;In Annex 6 to
+
+[410 | 561.68] loss=1.65 avg=1.71
+[420 | 574.23] loss=1.43 avg=1.70
+[430 | 586.75] loss=1.55 avg=1.70
+[440 | 599.29] loss=1.54 avg=1.69
+[450 | 611.86] loss=1.46 avg=1.69
+[460 | 624.40] loss=1.26 avg=1.68
+[470 | 636.94] loss=1.48 avg=1.67
+[480 | 649.48] loss=1.65 avg=1.67
+[490 | 662.03] loss=1.51 avg=1.67
+[500 | 674.58] loss=1.27 avg=1.66
+Saving checkpoint/run1/model-500
+======== SAMPLE 1 ========
+ the European Financial Aid Fund (EFAF) under the same framework as that under which the Fund was established in 2007 is:
+- 1 August 2007
+(a) as regards the Fund for expenditure, (b) on implementation of the provisions of which have been agreed between the Commission and the Member State and in so far as such provisions continue to satisfy, within the framework of that Community framework:
+- budgetary provisions and the financing of them (ex. for the implementation of Community programmes in the area referred to under the headings in Article 2) for expenditure by Member States, and
+- the financing of projects for which the Community grants assistance have been formally agreed in accordance with the procedure provided for in Article 28(2) of Regulation (EEC, Euratom) No 2185/68,
+- budgetary provisions and financing of projects for which expenditure has been implemented in accordance with the procedure provided for in paragraph 2 of Regulation (EC, Euratom) No 2185/68,
+- financial measures for which the assistance has been formally approved by the Commission. This Regulation shall enter into force on the day of its publication in the Official Journal of the European Union.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EEC) No 2477/89 of 23 May 1989 fixing for the 1989 marketing year, the maximum price and the level of the VAT duty to be paid under the Community aid schemes
+&#34; &#34;For the 1989 marketing year, the maximum price and the level of the VAT duty to be paid under the Community aid schemes shall be as provided for in the table in Annex B to Annex A of Regulation (EEC) No 3837/71. This Regulation shall enter into force on 1 June 1990.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 21/2007 of 27 December 2007 amending Regulations (EC) No 1496/2004 and (EC) No 1517/2004 as regards the amount of the tariff duty to be paid to certain fishing vessels
+&#34; &#34;Annexes I and II to Regulation (EC) No 1496/2004 and (EC) No 1517/2004 are supplemented, as indicated in the Annex to this Regulation, by the said Annex I to Regulations (EC) No 1496/2004 and (EC) No 1517/2004. This Regulation shall enter into force on 1 January 2008.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;90/17/EEC: Commission Decision of 27 October 1990 amending Decision 86/393/EEC, with the exception of Article 2, of Decision 89/118/EEC and Decision 87/118/EEC (Only the French and German texts are authentic)
+&#34; &#34;Decision 86/393/EEC is hereby amended as follows:
+1. the footnote (5) is deleted;
+2. the second paragraph is replaced by the following:
+3. in Article 2 (1), &#34;&#34;one of the said species, except for the species of Stilogorpha (L. cicornis), shall not be eligible for a reduced price pursuant to Council Regulation (EEC) No 542/88(5)
+&#34;
+3. in Article 3 (1) (a), &#34;&#34;one of the said species, except for the species of Stilogorpha (L. cicornis), may be eligible for VAT as an import VAT on products originating in the country from which the refund is to be eligible.&#34;&#34;
+4. in Article 4, &#34;&#34;one of the said species, except for the species of Stilogorpha (L. cicornis), shall be eligible for a reduced price upon application of Article 9 of Regulation (EEC) No 542/88, which for products to be eligible in each category, with exception to certain species of Stilogorpha (L. cicornis)&#34;&#34;
+5. in Article 5 (1a), &#34;&#34;The reduction in VAT applicable to the product referred to in Article 1 as referred to in the first subparagraph of Article 1, except for that which applies during the course of the buying-in period under Council Regulation (EEC) No 542/88, shall be zero. This Regulation shall enter into force on the day of its publication in the Official Journal of the European Communities.&#34;&#34;.
+However, Article 2 of Decision 85/468/EEC should apply only to this Regulation in relation to the reduction referred to by Decision 86/393/EEC.&#34;&#34;
+6. in Article 11 (1), the phrase &#34;&#34;with exception to certain species of Stilogorpha (L. cicornis)&#34;,&#34; is deleted.
+7. Article 16 (2
+
+[510 | 699.75] loss=1.65 avg=1.66
+[520 | 712.32] loss=1.24 avg=1.65
+[530 | 724.84] loss=1.13 avg=1.63
+[540 | 737.41] loss=1.74 avg=1.64
+[550 | 749.94] loss=1.28 avg=1.63
+[560 | 762.46] loss=1.58 avg=1.63
+[570 | 774.98] loss=1.53 avg=1.62
+[580 | 787.54] loss=1.60 avg=1.62
+[590 | 800.08] loss=1.10 avg=1.61
+[600 | 812.62] loss=1.51 avg=1.61
+======== SAMPLE 1 ========
+ shall be eligible in respect of this Regulation as from 1 July 1993 to 30 October 1997. For the purposes of this Regulation, &#34;&#34;other&#34;&#34; shall mean any species of plant or animal which must be registered as a natural or legal person in the Community with a natural or legal person in the host Member State.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 1434/2002 of 12 July 2002 fixing the export refunds on products processed from cereals
+&#34; &#34;1. The products or groups of products covered by Articles 1(1)(a) and (b) and (c) of Regulation (EEC) No 2454/93 shall be deemed to be processed products, in the sense of Article 10(1)(a) of that Regulation.
+This Regulation shall enter into force on 13 July 2002.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;2009/12/EC: Council Decision of 21 October 2009 appointing a Spanish expert on ecological problems and in the environment
+&#34; &#34;Dr. José Carlos R. MÁNCHEZ, an expert on ecological problems and experts on ecological problems:
+- for the environmental protection of the environment
+(in Spanish)
+- for the development of sustainable foodstuffs and related programmes of development of the Environment (in the Republic of Chile)
+- for the development of sustainability in the agricultural sector
+- for the development of sustainable energy and renewable energy
+(hereinafter referred to as &#34;&#34;the expertise&#34;&#34;):
+(1) OJ L 53, 19. 8. 2009, p. 1.
+(2) OJ L 151, 27. 26. 2008, p. 1.
+(3) OJ L 36, 20. 19. 2007, p. 1.
+(4) OJ L 142, 7. 5. 2007, p. 8.
+(5) OJ L 115, 29. 10. 2006, p. 7.
+(6) OJ L 125, 22. 9. 2007, p. 5. In Annex VII of Decision 79/322/EEC, the following Annex is added:
+&#34;&#34;1. This Decision is addressed to the members of the Commission under Article 21(3) of Council Decision 80/424/EEC. This Decision shall apply from 1 July 2009. The Council Decision of 21 October 2009 shall apply from the European Union.&#34;&#34; This Decision shall enter into force on the day following that of its publication in the Official Journal of the European Union.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;2009/721/: Commission Decision of 18 July 2009 on the implementation of the European Union financial contribution to international aid in the region of Andean America (‘Spain)’ (notified under document number C(2009) 3216)  Text with EEA relevance
+&#34; &#34;The financial contribution by the European Union for the region of Andean America (‘Spain’) shall be EUR 29 000 for the 2009 financial year. This Decision is addressed to the European Union.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 1412/2002 of 4 November 2002 concerning the authorisation of a method for grading maize referred to in Article 5a of Regulation (EC) No 1234/2000
+&#34; &#34;(1)- (3)  Text with EEA relevance. This Regulation shall enter into force on the 20th day following its publication in  the Official Journal of the European Communities.
+It shall apply from the 20th day after its entry into force.
+This Regulation shall be binding in its entirety and directly applicable in all  Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 3/2007 of 3 February 2007 establishing the standard import values for determining the entry price of certain fruit and vegetables
+&#34; &#34;The standard import values referred to in Article 4 of Regulation (EC) No 3200/94 shall be fixed as indicated in the Annex hereto. This Regulation shall enter into force on 6 February 2007.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EU) No 827/2013 of 16 June 2013 fixing the representative prices and the additional costs of administering Community structural market management products for the period 11 June 2013 to 30 June 2015, and fixing the amounts applicable
+&#34; &#34;The representative prices and the additional costs of administering the Structural Market Management and Economic  Adjustment Fund Regulation on the basis of the Community structural market management and economic adjustment financing programme for Community structural market management and economic adjustment financing (‘CSM’) to be implemented by the European Union in order to improve the living standards of persons living in the
+
+[610 | 835.26] loss=1.49 avg=1.61
+[620 | 847.78] loss=1.23 avg=1.60
+[630 | 860.33] loss=1.61 avg=1.60
+[640 | 872.84] loss=1.16 avg=1.59
+[650 | 885.38] loss=1.46 avg=1.59
+[660 | 897.93] loss=1.46 avg=1.58
+[670 | 910.50] loss=1.58 avg=1.58
+[680 | 923.03] loss=1.43 avg=1.58
+[690 | 935.58] loss=1.50 avg=1.58
+[700 | 948.12] loss=1.38 avg=1.58
+======== SAMPLE 1 ========
+ collection of the products shall be as laid down in the Annex hereto.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;2009/932/EC: Commission Decision of 26 November 2009 amending Decision 2008/1254/EC authorizing Belgium to exempt certain goods originating in Ukraine and Canada from import duties (notified under document number C(2009) 3923) (Only the French and Dutch texts are authentic)
+&#34; &#34;The Annex to Decision 2008/1254/EC is amended in accordance with the Annex to this Decision. This Decision is addressed to the Kingdom of Belgium, the Federal Republic of Germany, the French Republic, the Grand Duchy of Luxembourg, the Republic of Hungary, the Kingdom of the Netherlands, the Republic of Austria, the Kingdom of Sweden and the United States of America. This Decision is addressed to the Kingdom of Belgium.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Implementing Regulation (EU) No 122/2014 of 14 November 2014 approving non-minor amendments to the specification for a name entered in the register of protected designations of origin and protected geographical indications [Pineapple] (Text with EEA relevance)
+&#34; &#34;The amendments to the specification published in the Official Journal of the European Union regarding the name contained in the Annex to this Regulation are hereby approved. This Regulation shall enter into force on the 20th day following that of its publication in the Official Journal of the European Union.
+It shall apply from 1 April 2014 and shall expire on 31 May 2015.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Implementing Regulation (EU) No 1294/2012 of 13 October 2012 amending Regulation (EEC) No 2547/92 laying down certain transitional measures for the implementation of the arrangements for the sale of beef held by certain intervention agencies in third countries (Text with EEA relevance)
+&#34; &#34;Regulation (EEC) No 2547/92 is amended as follows:
+(1) in point (d) of Article 2, &#39;the quantities which may be purchased as provided for in Article 12 (4) (b) of Regulation (EEC) No 3012/92` shall be replaced by &#39;quantities which may be purchased as provided for in Article 12 (4) (b) of Regulation (EEC) No 3012/92`.
+(2) in point (f) of Article 6(1), &#39;the quantities actually purchased` shall be replaced by &#39;the quantities actually purchased`. This Regulation shall enter into force on the third day following its publication in the Official Journal of the European Union.
+It shall apply from 4 October 2013.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;88/10/EEC: Commission Decision of 22 April 1987 concerning methods and technical aids for supplying the overseas countries and territories with wine originating in the Republic of China (China) (Only the Chinese text is authentic)
+&#34; &#34;To the extent eligible for Community aid, expenditure on production of a quality certificate relating to quality wine, produced in the Republic of China referred to in Annex I to Council Regulation No 778/67 of 30 June 1967, is authorized only where the production record for the quality of wine described in paragraph 1 (a) or the production record for the product referred to in paragraph 1 (b) corresponds to the country in which it is produced.
+Proof of production from certified wine is furnished at no cost. Any expenditure incurred in preparing or preparing for production of quality wine referred to in Articles 1, 2 and 5 may be reimbursed by the relevant Commission authority, in accordance with Decision 85/868/EEC, on the basis of the quality of wine referred to in Article 1 of that Decision, whether manufactured at home or in the Community&#39;s territory. In case of manufacturing at home, the Community may authorise the authorisation of expenditure for this purpose not having regard to the situation of the overseas countries and territories mentioned in Article 2 (1) (a) of Annex II to Regulation No 778/67,
+- provided that the production records of the Republic of China are kept up to date in accordance with the provisions of Decision 85/868/EEC, as amended by this Decision. This Decision is addressed to Ireland.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EEC) No 569/70 of 30 September 1970 amending Regulation (EEC) No 3078/67 on transitional measures in respect of agricultural produce
+&#34; &#34;In Article 1 (2) (b) of Regulation (EEC) No 3078/67, the date &#39;30 September 1970` shall be replaced by &#39;30 October 1970`. The Annex to Regulation (EEC) No 3166/71 is hereby replaced by the Annex hereto. This Regulation shall enter into force on
+
+[710 | 970.26] loss=1.19 avg=1.57
+[720 | 982.81] loss=1.41 avg=1.57
+[730 | 995.36] loss=1.42 avg=1.56
+[740 | 1007.93] loss=1.42 avg=1.56
+[750 | 1020.48] loss=1.69 avg=1.56
+[760 | 1033.03] loss=1.26 avg=1.56
+[770 | 1045.56] loss=1.53 avg=1.56
+[780 | 1058.11] loss=1.42 avg=1.55
+[790 | 1070.68] loss=1.75 avg=1.56
+[800 | 1083.21] loss=1.49 avg=1.56
+======== SAMPLE 1 ========
+ to this Regulation. 1. For all other imports of fruit in sugar beet and for other applications in the sugar beet sector, the duties and processing charges expressed in ECU per 100 kilograms shall be:
+- reduced by 40 % for the products indicated in the first indent in accordance with the procedure laid down in Article 1 (d) and 70 % for the products indicated in the first, in respect of the 1992/93 to 1994/95 marketing year,
+- reduced by 20 % for the products indicated in the first, in respect of the 1993/94 to 1994/95 marketing year,
+- reduced by 20 % for the products indicated in the first, in respect of the 1995/96 marketing year,
+- reduced by 20 % for the products indicated in the first, in respect of the 1996/97 marketing year.
+2. For each export in the form and to the extent laid down in this Regulation, the customs tariff duty or payment referred to in this Regulation is not applicable on the day following that for which the import price was determined on the basis of the products indicated in the last indent in the first indent in accordance with the procedure laid down in Article 1 (c) and with the second indent in the first paragraphs of Article 2 (2).
+3. The amounts referred to in Annex II to this Regulation are hereby deducted by the customs authorities and in advance of the amount of the customs duties laid down on the day following that for which the customs duties are applied, in respect of products indicated in the second indent (1) and the first paragraph of Article 2 (2), subject to the third indent in the second indent in the second subparagraph as well as the first indent, and of the following products:
+(a) products indicated in the second paragraph of Article 2 (2),
+and
+(b) products which are not indicated in the second paragraph in respect of products which are the subject of customs duties. 0
+References to the third indent are hereby deleted. 1
+This Regulation shall enter into force on 1 October 1996.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Council Directive 1999/13/EC of 20 December 1999 adapting to technical progress Directive 91/361/EEC on the technical requirements and rules for applying special provisions in the administrative aspects of Directives 69/336/EEC and 86/332/EEC
+&#34; &#34;Directives 69/336/EEC, 86/332/EEC, 87/102/EEC, 89/106/EEC and 87/106/EEC shall be replaced as set out in the Annex to this Directive with effect from 1 January 2000. Member States shall bring into force the laws, regulations and administrative provisions necessary to comply with this Directive before 1 January 2000 and within five months of its notification. They shall forthwith inform the Commission thereof.
+When Member States adopt those measures, they shall contain a reference to this Directive or shall be accompanied by such a reference on the occasion of their official publication. The procedure for such reference shall be adopted by Member States. This Directive shall be without prejudice to the decisions already taken at national level. This Directive shall enter into force on the third day following its publication in the Official Journal of the European Communities. This Directive is addressed to the Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 2917/98 of 30 November 1998 on the issue of system B export licences within the meaning of Articles 8 to 10 of Council Regulation (EEC) No 2777/85 on the granting of export licences for milk
+&#34; &#34;Applications for system B export licences for milk which are returned to the unit amount by the competent authority must be for at least 3 000 tonnes for the category of product for which the export licence is granted.
+For the category of product for which the export licence is issued applications from 31 December 1998 to 30 September 1999 shall be granted. 1. Applications for export licences within the meaning of Article 8(1) of Regulation (EEC) No 3727/75 must be submitted to the processing body for the category of product that receives the export declaration of licence on the basis of the following quantities (the figure of 5 000 tonnes shown in Annex I):
+- 4,600 tonnes for the category of products listed in Annex II (*),
+- 5,835 tonnes for the category of products listed in Annex II (*),
+- 1 800 tonnes for the category of products listed in Annex III (*). Applications for export licences within the meaning of Annex III must be submitted to the competent authority of the Member State in which the applicant is located. Applications for export licences must contain a security containing ECU 5 per 100 kilograms.
+2. Applications for export licences within the meaning of paragraph 1 must be submitted not later than 15 December 1998 at the latest. The competent authority of the Member State in which the application was submitted must issue the export declaration accompanied by the corresponding export
+
+[810 | 1105.53] loss=1.57 avg=1.56
+[820 | 1118.10] loss=1.47 avg=1.55
+[830 | 1130.70] loss=1.50 avg=1.55
+[840 | 1143.27] loss=1.70 avg=1.56
+[850 | 1155.78] loss=1.39 avg=1.55
+[860 | 1168.34] loss=1.50 avg=1.55
+[870 | 1180.87] loss=1.56 avg=1.55
+[880 | 1193.45] loss=1.59 avg=1.55
+[890 | 1205.99] loss=1.49 avg=1.55
+[900 | 1218.53] loss=1.12 avg=1.55
+======== SAMPLE 1 ========
+ 19, and the following shall be added:
+&#34;&#34;Article 27a
+1. In the case of the products referred to in  Article 3 (1) (b) (c), Article 25 (2) (d) and Article 25 (3) (b) (e), the Member State in which the product of  the minimum referred to in paragraph 1 comes, may take steps to prohibit the imports from that part of  that minimum which it regards as being harmful to human life.
+2 A Member State shall inform the Commission, within 15 working days of the entry into  force of a common technical regulation, of the measures taken pursuant to Article 25 (5) (b) (f) for the minimum referred to in paragraph 1 except where an  infringement of that  minimum has been discovered and referred to the Commission.
+For that purpose, the Commission will, in accordance with the procedure referred to in  Article 22 (1a) (a) (3) (b), make a call to action. If the Commission does not act on the call the minimum in question may be taken
+1. in the case of product referred to in Article 5 (1) in addition to the measures provided in paragraph 1 and
+2. in the case of product referred to in Article 6 in addition to the measures provided in paragraph 1 and
+3. in the case of product referred to in Article 7 in addition to the measures provided in paragraph 1, an infringement or a  limitation of the minimum shall be taken.
+Where the minimum referred to in paragraph 1, plus the limit imposed, is fixed in accordance with Article 25 (5) (b) (d), the Member State concerned may take all the measures provided in  paragraph 1 and the Commission, acting on its own initiative, may take whatever measures are necessary to ensure the effective control of the minimum referred to  in paragraph 1.
+Where the minimum referred to in paragraph 1 is adjusted within two years or less from the date of entry into force of the said Regulation to account for at least part of the increase from the  minimum laid down, the rate of increase shall be increased by 0,4 %.’;
+2. Article 6 shall read as follows:
+— paragraph 1.
+5. The Member State shall ensure that the minimum referred to in paragraph 1 shall be determined on a non-discriminatory basis in respect of imports in accordance with Directive 1999/43/EC, taking account, in particular, of the seriousness of the  infringement against the minimum.
+However, the Member States may adjust this non-discriminatory basis. Any Member State which would be accorded a derogation on the basis of the abovementioned subparagraphs shall inform the Commission of this request. Member States may apply to be referred to in the Committee of a Scientific and Technical Committee
+The Committee of a Scientific and Technical Committee shall be consulted during Council meetings on specific matters in the Community.
+5. The Member States may propose any amendment to paragraph 5. Member States shall have one year from the date of entry into force of the Regulation taking account of the seriousness of the  infringements referred to in the said paragraph 1, until such time as the Council, acting at the request of the Member State concerned, acts on an urgent matter.
+The Member States, as a matter of urgent urgency, shall amend the Commission&#39;s decision-making procedures.
+6. Within the limits of the available financial resources, Member States may draw upon public funding at their own initiative. They shall forthwith inform the Commission thereof. 0
+1. The Council acting on a proposal from the Commission shall adopt, not later than on the day of the entry into force of the Regulation, Community technical provisions for implementing Community objectives on technical aspects of  the system of production and marketing referred to in Article 37 thereof, and Community rules for preventing or correcting irregularities in production and marketing.
+2. The Council acting on a proposal from the Commission, shall decide, by analogy, on the necessary conditions for the application of paragraphs 1 and 2 to the provisions of that Article.
+3. The Council of the European Parliament shall act on an application from the Commission on the date 1 July 1996, within four months after submission of the proposal. 1
+As from 1 January 2000 the Member States shall, by 1 January 2000, present the Commission with a proposal on the basis of the proposals mentioned in this Article. The Council, acting by a qualified majority on a proposal laid down by Member States or on their own initiative, may take a different decision, taking account of the seriousness of the infringements concerned, on the basis of which Articles 6, 8, 8b and 8c (3 and 6, 8 and 8d respectively), or, as the case may be, they may take a different proposal on the basis of which Articles 6 (1) (a) and (1) (b) take account of Articles 6, 8 (4) and 8 (5) (b) or, as the case
+
+[910 | 1240.75] loss=1.44 avg=1.54
+[920 | 1253.27] loss=1.21 avg=1.54
+[930 | 1265.81] loss=1.47 avg=1.54
+[940 | 1278.33] loss=1.54 avg=1.54
+[950 | 1290.89] loss=1.70 avg=1.54
+[960 | 1303.47] loss=1.65 avg=1.54
+[970 | 1316.06] loss=1.20 avg=1.54
+[980 | 1328.62] loss=1.05 avg=1.53
+[990 | 1341.17] loss=1.31 avg=1.52
+[1000 | 1353.72] loss=1.55 avg=1.52
+Saving checkpoint/run1/model-1000
+WARNING:tensorflow:From /tensorflow-1.15.2/python3.6/tensorflow_core/python/training/saver.py:963: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are a few things to note about the training process.</p>
+<p>The model being already pretrained, it is no surprise that sentences are written in proper intelligible English after only 100 iterations.</p>
+<p>However, the text from the first few hundred iterations are filled with unnecessary repetitions and contain some non-sensical sequences of words. This seems to be less pronounced in the second half of our training process. We can see some improvements in the cohesiveness and the structure of the output as the model is fine-tuned.</p>
+<p>The average training loss keeps going down through the iterations (from 2.5 to 1.52). However the average loss almost stopped decreasing in the last 300 iterations (from 1.56 to 1.52), maybe a sign that the model has almost converged and that additional training may not help to improve the model.</p>
+<h3 id="Text-Generation">Text Generation<a class="anchor-link" href="#Text-Generation">&#182;</a></h3><p>We can now use the model weights that we got from our finetuning process to generate some text. Again, the GPT2 module makes it straightforward.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gpt2</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span>
+              <span class="n">length</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+              <span class="n">temperature</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+              <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&lt;startoftext&gt;&quot;</span><span class="p">,</span>
+              <span class="n">truncate</span><span class="o">=</span><span class="s1">&#39;&lt;|endoftext|&gt;&#39;</span><span class="p">,</span>
+              <span class="n">include_prefix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">nsamples</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+              <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;startoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Implementing Regulation (EU) No 853/2011 of 3 June 2011 establishing the standard import values for determining the entry price of certain fruit and vegetables
+&#34; &#34;The standard import values referred to in Article 138 of Implementing Regulation (EU) No 543/2011 are fixed in the Annex hereto. This Regulation shall enter into force on the day of its publication in the Official Journal of the European Union.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EEC) No 39/90 of 3 January 1990 allowing for an exemption from the duties applicable to imports of certain textile products originating in the United States of America creating a safeguard for the Community tariff quota
+&#34; &#34;1. From 1 January to 31 December 1990, the duties applicable to imports of the products listed in Article 1 of Commission Regulation (EEC) No 3847/90 (1) shall be suspended at the level indicated in column 2 of the tariff quota table shown below:
+&gt;TABLE&gt;
+2. The tariff quota shall be managed by the Commission in accordance with Article 23 of Regulation (EEC) No 3847/90.
+The Member States shall be informed by the Commission each Thursday of the date by which the quota day begins. The Member States shall set the date of the notification by the Commission of the date by which the tariff quota begins to be managed. This Regulation shall enter into force on 1 January 1990.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Council Regulation (EEC) No 2913/92 of 31 December 1992 amending Regulation (EEC) No 3382/90 laying down detailed implementing provisions for the specific arrangements for the supply of raw sugar from Community bovine and ovine animals
+&#34; &#34;In Article 13 of Regulation (EEC) No 3382/90, the date of the date of conclusion of a transitional transitional contract is replaced by the date of its completion. This Regulation shall enter into force on 1 January 1993.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.&#34;&lt;endoftext&gt; 
+ &lt;startoftext&gt;&#34;Commission Regulation (EC) No 1564/2002 of 4 July 2002 fixing the minimum selling price for butter for the 39th individual
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can generate you own GPT2 EU legislative act <a href="https://thomasdelatte.com/app">here</a>.</p>
+<p>Let’s take a look at a first example of generated text:</p>
+<blockquote><p><strong>COUNCIL DECISION 2011/783/CFSP of 19 January 2011 adapting, for the seventh time, the detailed rules of application of the Single Programming Document for the Internal Market in Electronic Records</strong></p>
+<p>The detailed rules of application for the Single Programming Document for the Internal Market in Electronic Records (the Document):</p>
+<p>(a) shall be as set out in the Annex; and</p>
+<p>(b) shall be supplemented, inter alia, by additional provisions:</p>
+<p>(i) for the application of Articles 308a, 308b, 308c, 308d, 308e, 308f, 308g, 308h, 308i, 308j, 308k, 308l, 308m, 308n, 308o, 308p and 308q;</p>
+<p>(ii) for the application of Articles 308a, 308b, 308c, 308d, 308e, 308f, 308g, 308h, 308i, 308j, 308k, 308l, 308m, 308n, 308o, 308p, 308q.</p>
+<p>The combined nomenclature for electronic purposes in Annex I to this Decision shall be as set out in the Annex hereto.</p>
+<p>This Decision is addressed to the Member States.</p>
+</blockquote>
+<p>In any case, we cannot blame GPT2 for having changed the impenetrable style of legislative writing. As a lawyer, I can assure you it looks like the typical Council Decision. I can see the Council adapting this kind of arcane document "for the seventh time".</p>
+<p>Joke aside, the text respects the basic structure of a Council Decision and is coherent in its use of the dates and internal references.</p>
+<p>Here is another example, with a lower temperature set at 0.5 (less creativity).</p>
+<blockquote><p><strong>Commission Regulation (EC) No 1232/2005 of 12 October 2005 amending Regulation (EC) No 2318/2001 laying down detailed rules for the application of Council Regulation (EC) No 2400/2001 as regards the granting of aid for the manufacture of certain vegetable oils and fats, and amending Regulation (EC) No 2400/2001</strong></p>
+<p>The Annex to Regulation (EC) No 2318/2001 is replaced by the Annex to this Regulation.</p>
+<p>This Regulation shall enter into force on the third day following its publication in the Official Journal of the European Union.
+This Regulation shall be binding in its entirety and directly applicable in all Member States.</p>
+</blockquote>
+<p>The lower temperature used makes the text even less decipherable. This Regulation seems almost void of content and only filled with internal and external references. The title suggests the amendment of two Regulations (2318/2001 and 2400/2001), while the body of the text only modifies one of the Regulations. This seems to be a small shortcoming in the model's understanding of the structure of legal acts.</p>
+<p>Let's take a last example a bit more creative:</p>
+<blockquote><p><strong>COMMISSION IMPLEMENTING DECISION 2002/551/CFSP: Commission Decision of 20 December 2001 on the approval of the research programme for the eradication of leukosis in sheep and goat (notified under document number C(2001) 3923)</strong></p>
+<p>The programme for the eradication of leukosis in sheep and goat, as set out in the Annex, is hereby approved.
+The approval of the programme, as referred to in Article 16 of Decision 2001/974/CFSP, is conditional on the completion of the following essential measures:</p>
+<p>(a) the minimum number of sheep-to-human transmission lines for transmission by sheep to be connected to the transmission line for the transmission of leukosis;</p>
+<p>(b) the capacity to use the transmission lines for transmission of leukosis and the material needed for the transmission of the disease to the human population, as set out in Annex II;</p>
+<p>(c) the capacity to operate the transmission lines;</p>
+<p>(d) the standard equipment for the transmission of infectious leukosis;</p>
+<p>(e) the method for monitoring the transmission of leukosis;</p>
+<p>(f) the means available for monitoring the transmission of infectious leukosis and leukosis-associated infectious leukosis to the affected area.</p>
+<p>Member States shall ensure that the implementation of the programme is carried out in accordance with the provisions of Regulations (EC) No 1445/95, (EC) No 1547/95, (EC) No 1608/95 and (EC) No 1754/95.</p>
+<p>This Decision is addressed to the Member States.</p>
+</blockquote>
+<h2 id="Final-Thoughts">Final Thoughts<a class="anchor-link" href="#Final-Thoughts">&#182;</a></h2><p>Overall, the generated texts seem pretty good. I would definitely have a hard time distinguishing between a GPT-2 generated text and a genuine EU legislative act, except for the occasional small inconsistencies. The model usually stays coherent with dates and  internal references.</p>
+<p>It is worth checking whether those texts are plagiarized by checking if it did not copy text from the training dataset. A quick manual check found the generated texts mostly original but sometimes made of combinations of words existing in the dataset.</p>
+<p>What I find particularly impressive is the ease with which the GPT-2 model could be trained to generate content of such a quality. Only a few lines of code were necessary to load and preprocess the dataset as well as for fine-tuning the model. The barrier to entry to cutting-edge Natural Language Processing has been considerably reduced in the last two years. This is indeed the promise of transfer learning in the form of pretrained language models.</p>
+<p>A next step would be to train the GPT-2 on another very interesting legal set of texts: courts judgements. Given a large enough dataset, the ability of GPT-2 to stay coherent could really shine.</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+	</div>
+
+	<div id="related-articles">
+		<a href="/2020/04/kmeans/" id="prev-neighbour">Understanding K-Means Clustering &raquo;</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer>
+			<p></p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-163901213-1', '');
+		ga('send', 'pageview');
+	</script>
+
+</body>
+</html>
