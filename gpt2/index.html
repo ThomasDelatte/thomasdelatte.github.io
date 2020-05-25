@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>GPT2-generated EU legislation | Thomas Delatte</title>
-	<meta name="description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
+	<meta name="description" content="Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Save Image Clear Texts Generated text will appear here! Use the form to configure GPT-2 and …">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
 	<meta property="og:title" content="GPT2-generated EU legislation">
-	<meta property="og:description" content="Text Prompt Starts the generated text with the specified text. (Optional: max 500 characters) Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Top k …">
+	<meta property="og:description" content="Generated Text Length Length of the text in tokens to generate. (max: 1023) Temperature Controls the generated text "creativity." (the higher the temperature, the more creative) Save Image Clear Texts Generated text will appear here! Use the form to configure GPT-2 and …">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://thomasdelatte.github.io/gpt2/">
@@ -78,14 +78,6 @@
                 <div class="column is-narrow" style="width: 250px;">
                     <form id="gen-form">
                         <div class="field">
-                            <label class="label">Text Prompt</label>
-                            <div class="control">
-                                <textarea id="prefix" class="textarea" type="text" placeholder="Council Directive" rows="2"></textarea>
-                            </div>
-                            <p class="help">Starts the generated text with the specified text. <em>(Optional: max 500 characters)</em>
-                            </p>
-                        </div>
-                        <div class="field">
                             <label class="label">Generated Text Length</label>
                             <div class="control">
                                 <input id="length" class="input" type="text" placeholder="Text input" value="500">
@@ -98,22 +90,6 @@
                                 <input id="temperature" class="input" type="text" placeholder="0.8" value="0.8">
                             </div>
                             <p class="help">Controls the generated text "creativity." <em>(the higher the temperature, the more creative)</em></p>
-                        </div>
-                        <div class="field">
-                            <label class="label">Top <em>k</em></label>
-                            <div class="control">
-                                <input id="top_k" class="input" type="text" placeholder="40" value="40">
-                            </div>
-                            <p class="help">Constrains the generated text tokens to the top <em>k</em> possibilities. <em>(set to 0 to
-                                    disable)</em></p>
-                        </div>
-                        <div class="buttons">
-                            <span class="control">
-                                <button type="submit" name="submit" id="generate-text" class="button is-link">
-                                    <span class="icon">
-                                        <i class="fas fa-md fa-pen"></i>
-                                    </span><span>Generate Text!</span></button>
-                            </span>
                         </div>
                     </form>
                     <div id="extra-buttons" class="buttons">
