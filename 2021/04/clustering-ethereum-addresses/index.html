@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>Clustering the Ethereum Address Space | Thomas Delatte</title>
-	<meta name="description" content="Users may be anonymous on the Ethereum blockchain, but their addresses are unique identifiers that leave publicly available transactional data. After building a datasetgathering this public data, I attempt to create meaningful categories of users (Miners, Exchanges,...) by dividing the Ethereum address space in clusters. A small percentage of labeled addresses in the dataset allows me to re-cluster the data to leverage this information, using a constrained version of the K-Means algorithm.">
+	<meta name="description" content="Users may be anonymous on the Ethereum blockchain, but their addresses are unique identifiers that leave publicly available transactional data. After building a dataset gathering this public data, I attempt to create meaningful categories of users (Miners, Exchanges,...) by dividing the Ethereum address space in clusters. A small percentage of labeled addresses in the dataset allows me to re-cluster the data to leverage this information, using a constrained version of the K-Means algorithm.">
 	<meta name="author" content="Thomas Delatte">
 	<link rel="author" href=""/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@thomasdelatte">
 	<meta property="og:title" content="Clustering the Ethereum Address Space">
-	<meta property="og:description" content="Users may be anonymous on the Ethereum blockchain, but their addresses are unique identifiers that leave publicly available transactional data. After building a datasetgathering this public data, I attempt to create meaningful categories of users (Miners, Exchanges,...) by dividing the Ethereum address space in clusters. A small percentage of labeled addresses in the dataset allows me to re-cluster the data to leverage this information, using a constrained version of the K-Means algorithm.">
+	<meta property="og:description" content="Users may be anonymous on the Ethereum blockchain, but their addresses are unique identifiers that leave publicly available transactional data. After building a dataset gathering this public data, I attempt to create meaningful categories of users (Miners, Exchanges,...) by dividing the Ethereum address space in clusters. A small percentage of labeled addresses in the dataset allows me to re-cluster the data to leverage this information, using a constrained version of the K-Means algorithm.">
 	<meta property="og:image" content="https://thomasdelatte.github.io/images/icons/avatar.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="https://thomasdelatte.github.io/2021/04/clustering-ethereum-addresses/">
@@ -1235,7 +1235,7 @@ div.prompt {
 <div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eth_dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1552,7 +1552,8 @@ div.prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="A-crucial-feature-for-identifying-Miners'-addresses:-the-number-of-mined-blocks">A crucial feature for identifying Miners' addresses: the number of mined blocks<a class="anchor-link" href="#A-crucial-feature-for-identifying-Miners'-addresses:-the-number-of-mined-blocks">&#182;</a></h2><p>As good as the BigQuery dataset is, it does not provide any information on whether an address has received any block mining rewards. This is obviously a key feature to identify a Miner's address and would allow to label these addresses as "Miners".</p>
 <p>Etherscan.io provides a <a href="https://etherscan.io/apis">free API Service</a> to access Ethereum transactional data, including the number of mined blocks per address. Querying the API allowed me to label 51 addresses from our dataset as "Miners".</p>
-<h2 id="Add-more-labels-to-the-data">Add more labels to the data<a class="anchor-link" href="#Add-more-labels-to-the-data">&#182;</a></h2><p>More labels of Ethereum addresses can be found on etherscan.io. Unfortunately, scraping was not possible. I manually added relevant labels to my dataset: 53 Exchange-owned addresses and 51 Miners-owned addresses, which represent together less than 1% of my dataset, which is not enough to try using a supervised learning algorithm and have meaningful results.</p>
+<h2 id="Add-labels-to-the-data">Add labels to the data<a class="anchor-link" href="#Add-labels-to-the-data">&#182;</a></h2><p>I found a dataset with crowdsourced labels to Ethereum addresses <a href="https://www.kaggle.com/hamishhall/labelled-ethereum-addresses">on Kaggle</a> and added labels from addresses present in my dataset.</p>
+<p>More labels of Ethereum addresses can be found on etherscan.io. Unfortunately, scraping was not possible. I manually added relevant labels to my dataset: 53 Exchange-owned addresses and 51 Miners-owned addresses, which represent together less than 1% of my dataset, which is not enough to try using a supervised learning algorithm and have meaningful results.</p>
 <h2 id="Pre-process-the-data">Pre-process the data<a class="anchor-link" href="#Pre-process-the-data">&#182;</a></h2><p>I cleaned the data: some dimensionality reduction and scaling (Principal Component Analysis). Sklearn’s pipeline functionality is used to preprocess the features, by using power transform, standard scaling, and PCA transformation. PCA transformation is useful here to reduce the dimensionality considering the number of features.</p>
 <h2 id="Cluster-the-data-into-clusters-using-K-Means">Cluster the data into clusters using K-Means<a class="anchor-link" href="#Cluster-the-data-into-clusters-using-K-Means">&#182;</a></h2><p>I trained a K-means algorithm to see if there are natural clusters within Ethereum addresses. To learn about the K-Means algorithm, you can read my explanation of the the algorithm <a href="https://thomasdelatte.com/2020/04/kmeans/">here</a>.</p>
 <p>First, I had to determine a relevant number of clusters. We know that there should exist a cluster for Exchange-owned addresses, a cluster for Miners-owned addresses, but probably also for other Ethereum users' archetypes not captured in our labeled data: Whales (investors holding very large bags of Ether), normal users, ICO wallets, DeFi liquidity pools,... We should see for them specific transactional behavior linked to their particular identity. How many clusters should we then have to maximize the clusters' interpretability?</p>
