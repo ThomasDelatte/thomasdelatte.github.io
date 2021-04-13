@@ -87,8 +87,8 @@
 <hr>
 <h3><a href="https://github.com/ThomasDelatte/ethereum-analytics">Clustering the Ethereum Address Space</a></h3>
 <ul>
-<li>On the Ethereum blockchain, addresses are unique identifiers that leave publicly available transactional data.</li>
-<li>I built a dataset from multiple sources: <a href="https://cloud.google.com/blog/products/data-analytics/ethereum-bigquery-public-dataset-smart-contract-analytics">Google BigQuery dataset</a>, etherscan.io public API, labels from a Kaggle dataset as well as manually added labels.</li>
+<li>On the Ethereum blockchain, addresses are unique identifiers that leave traces as publicly available transactional data.</li>
+<li>I built a dataset around Ethereum addresses and 28 relevant features from multiple sources: <a href="https://cloud.google.com/blog/products/data-analytics/ethereum-bigquery-public-dataset-smart-contract-analytics">Google BigQuery dataset</a>, etherscan.io public API, labels from a Kaggle dataset as well as manually added labels.</li>
 <li>I attempt to create meaningful categories of users (Miners, Exchanges,...) by using K-Means clustering algorithm.</li>
 <li>A small percentage of labeled addresses in the dataset allows me to re-cluster the data to leverage this information, using a <a href="https://github.com/Behrouz-Babaki/COP-Kmeans">constrained version of the K-Means algorithm</a>.</li>
 </ul>
